@@ -5,5 +5,8 @@
         <h2>{{ $product->name }}</h2>
         <p>価格：{{ $product->price }}円</p>
         <p>{{ $product->description }}</p>
+
+        <a href="{{ route('products.show', $product->id) }}">詳細を見る</a>
+
     </div>
 @endforeach

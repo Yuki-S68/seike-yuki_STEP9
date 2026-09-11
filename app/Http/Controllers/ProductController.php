@@ -42,4 +42,13 @@ class ProductController extends Controller
         //商品一覧へのリダイレクト
         return redirect()->route('products.index');
     }
+
+    public function show($id)
+    {
+        //１件のデータを取得
+        $product = Product::findOrFail($id);
+
+        //Bladeに渡す
+        return view('products.show', compact('product'));
+    }
 }
