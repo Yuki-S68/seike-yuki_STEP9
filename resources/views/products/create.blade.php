@@ -18,5 +18,11 @@
         <textarea name="description"></textarea>
     </div>
 
+    <div>
+        <label>在庫数</label>
+        <input type="number" name="stock">
+    </div>
+
+
     <button type="submit">登録する</button>
 </form>

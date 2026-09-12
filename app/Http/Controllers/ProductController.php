@@ -28,6 +28,7 @@ class ProductController extends Controller
             'name' => 'required',
             'price' => 'required|integer',
             'description' => 'required',
+            'stock' => 'required|integer',
         ]);
 
         //商品登録
@@ -35,6 +36,7 @@ class ProductController extends Controller
             'name' => $request->name,
             'price' => $request->price,
             'description' => $request->description,
+            'stock' => $request->stock,
             'user_id' => 1,
             'company_id' => 1,
         ]);
@@ -65,6 +67,7 @@ class ProductController extends Controller
             'name' => 'required',
             'price' => 'required|integer',
             'description' => 'required',
+            'stock' => 'required|integer',
         ]);
 
         //商品を取得
