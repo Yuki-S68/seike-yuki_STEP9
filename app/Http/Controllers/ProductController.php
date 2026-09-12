@@ -77,10 +77,20 @@ class ProductController extends Controller
             'description' => $request->description,
             'stock' => $request->stock,
         ]);
-
     //一覧へ戻る
     return redirect()->route('products.index');
     }
 
+    public function destroy($id)
+    {
+        //商品情報を取得
+        $product = Product::findOrFail($id);
+
+        //削除処理
+        $product->delete();
+
+    //一覧へ戻る
+    return redirect()->route('products.index');
+    }
 
 }
