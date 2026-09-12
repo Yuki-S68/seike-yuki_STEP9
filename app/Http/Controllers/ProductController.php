@@ -51,4 +51,36 @@ class ProductController extends Controller
         //Bladeに渡す
         return view('products.show', compact('product'));
     }
+
+    public function edit($id)
+    {
+        $product = Product::findOrFail($id);
+        return view('products.edit', compact('product'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        //バリデーション
+        $request->validate([
+            'name' => 'required',
+            'price' => 'required|integer',
+            'description' => 'required',
+        ]);
+
+        //商品を取得
+        $product = Product::findOrFail($id);
+
+        //更新処理
+        $product->update([
+            'name' => $request->name,
+            'price' => $request->price,
+            'description' => $request->description,
+            'stock' => $request->stock,
+        ]);
+
+    //一覧へ戻る
+    return redirect()->route('products.index');
+    }
+
+
 }
