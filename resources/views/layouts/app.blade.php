@@ -16,7 +16,7 @@
             <h3>ECサイト</h3>
             <div>
                 ログインユーザー：
-                {{ auth()->user()->name }}
+                {{ auth()->user()->nam ?? 'ゲスト' }}
             </div>
         </div>
     </header>
