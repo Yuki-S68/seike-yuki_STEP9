@@ -1,6 +1,17 @@
 @extends('layouts.app')
 
+@section('title', '新規登録')
+
 @section('content')
+
+<div class="d-flex justify-content-between align-items-center p-3 bg-light mb-4">
+    <span class="fw-bold">Laravel</span>
+    <div>
+        <a href="{{ route('login') }}" class="text-decoration-none me-3">Login</a>
+        <a href="{{ route('register') }}" class="text-decoration-none">Register</a>
+    </div>
+</div>
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
