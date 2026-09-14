@@ -3,6 +3,13 @@
 @section('title', '商品一覧')
 
 @section('content')
+
+<form method="POST" action="{{ route('logout') }}">
+    @csrf
+    <button type="submit">ログアウト</button>
+</form>
+
+
     <h1>商品一覧</h1>
 
     @foreach ($products as $product)
