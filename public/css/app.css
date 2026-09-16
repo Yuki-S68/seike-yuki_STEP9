@@ -1,0 +1,97 @@
+/* 全体 */
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background: #fafafa;
+    margin: 0;
+    padding: 0;
+}
+
+/* ヘッダー全体 */
+header {
+    background-color: #fafafa;
+    color: #333;
+    padding: 20px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+/* ログアウトボタン */
+.logout-btn {
+    padding: 6px 14px;
+    border-radius: 6px;
+    border: 1px solid #007bff;
+    background-color: #fff;
+    color: #007bff;
+    font-weight:500;
+    cursor: pointer;
+}
+
+/* ヘッダーフォーム */
+header form {
+    margin-left: auto;
+}
+
+/* タイトル */
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* テーブル */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+/* 画像 */
+table img {
+    border-radius: 4px;
+}
+
+/* 詳細ボタン */
+.btn-success {
+    background-color: #28a745;
+    border-radius: 4px;
+    padding: 6px 12px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+}
+
+/* 検索フォーム*/
+form {
+    display: flex;
+    justify-content:center;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+form input {
+    margin-right: 10px;
+    padding: 5px;
+}
+
+form button {
+    padding: 6px 12px;
+    border-radius: 4px;
+    border: none;
+    background-color: #007dff;
+    color: #fff;
+}
+
+form button:hover {
+    background-color: #0069d9;
+}

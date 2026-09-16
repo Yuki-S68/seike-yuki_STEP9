@@ -14,5 +14,3 @@ Route::get('/home', function () {
 });
 
 Route::resource('products', ProductController::class);
-
-Route::resource('products', ProductController::class);
