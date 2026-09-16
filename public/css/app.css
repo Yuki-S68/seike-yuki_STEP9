@@ -98,17 +98,18 @@ form button:hover {
 
 /* 詳細ページカード */
 .detail-card {
-    background-color: #fff;
-    width: 90%;
-    max-width: 600px;
-    margin: 40px auto;
-    padding:40px;
-    border-radius: 12px;
-    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+    background-color: #fafafa;
+    width: 100vw !important;
+    max-width: none !important;
+    margin: 0;
+    padding:40px 80px;
+    border-radius: none;
+    box-sizing: border-box;
 }
 
 /* タイトル */
 .detail-card h1 {
+    text-align: left;
     font-size: 28px;
     font-weight: bold;
     margin-bottom: 30px;
@@ -116,7 +117,9 @@ form button:hover {
 
 /* 商品情報 */
 .detail-info {
-    margin-left: 20px;
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0 !important;
     line-height:1.8;
 }
 
@@ -136,7 +139,72 @@ form button:hover {
 /* ボタン */
 .detail-actions {
     display:flex;
-    justify-content: center;
+    justify-content: flex-start;
+    align-items: center;
     gap: 15px;
     margin-top: 30px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 6px;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    border: none;
+    color:#fff;
+    padding: 8px 16px;
+    border-radius: 6px;
+}
+
+/* フォーム */
+.form-control {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+/* ファイル選択ボタン全体 */
+.file-input-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.file-input-wrapper input[type="file"] {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+/* ボタン部分（「ファイルを選択」） */
+.file-input-wrapper input[type="file"]::file-selector-button {
+    background-color: #007bff;
+    color: #fff;
+    border:none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.file-input-wrapper input[type="file"]::file-selector-button:hover {
+    background-color: #0069d9;
+}
+
+/* ファイル名のテキスト部分 */
+.file-input-wrapper input[type="file"]::file-selector-button + span {
+    margin-left: 10px;
 }

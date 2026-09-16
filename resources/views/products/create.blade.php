@@ -3,32 +3,37 @@
 @section('title', '商品登録')
 
 @section('content')
+<div class="detail-card">
     <h1>商品登録</h1>
 
-    <form action="{{ route('products.store') }}" method="POST">
+    <form action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
 
-        <div>
-            <label>商品名</label>
-            <input type="text" name="name">
+        <div class="detail-info">
+            <p><strong>商品名</strong></p>
+            <input type="text" name="name" class="form-control">
+
+            <p><strong>価格</strong></p>
+                <input type="number" name="price" class="form-control">
+
+            <p><strong>商品説明</strong></p>
+                <textarea name="description" class="form-control"></textarea>
+
+            <p><strong>在庫数</strong></p>
+                <input type="number" name="stock" class="form-control">
         </div>
 
-        <div>
-            <label>価格</label>
-            <input type="number" name="price">
+        <div class="form-group">
+            <label for="image"><strong>商品画像</strong></label>
+            <div class="file-input-wrapper">
+                <input type="file" name="image" id="image">
+            </div>
         </div>
-
-        <div>
-            <label>商品説明</label>
-            <textarea name="description"></textarea>
-        </div>
-
-        <div>
-            <label>在庫数</label>
-            <input type="number" name="stock">
-        </div>
-
-
-        <button type="submit">登録する</button>
     </form>
+
+        <div class="detail-actions">
+            <a href="{{ route('products.index') }}" class="btn btn-secondary">戻る</a>
+            <button type="submit" class="btn btn-primary">登録</button>
+        </div>
+</div>
 @endsection
