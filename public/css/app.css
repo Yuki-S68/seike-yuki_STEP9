@@ -95,3 +95,48 @@ form button {
 form button:hover {
     background-color: #0069d9;
 }
+
+/* 詳細ページカード */
+.detail-card {
+    background-color: #fff;
+    width: 90%;
+    max-width: 600px;
+    margin: 40px auto;
+    padding:40px;
+    border-radius: 12px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* タイトル */
+.detail-card h1 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+/* 商品情報 */
+.detail-info {
+    margin-left: 20px;
+    line-height:1.8;
+}
+
+/* 商品画像 */
+.detail-image {
+    display: block;
+    margin: 30px auto;
+    max-width: 300px;
+    border-radius: 8px;
+}
+
+/* お気に入り（ハート）位置 */
+.favorite-section {
+    margin-top: 10px;
+}
+
+/* ボタン */
+.detail-actions {
+    display:flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+}

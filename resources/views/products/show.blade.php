@@ -1,22 +1,40 @@
 @extends('layouts.app')
 
-@section('title', '商品一覧')
+@section('title', '商品詳細')
 
 @section('content')
+<div class="detail-card">
     <h1>商品詳細</h1>
 
-    <p>商品名：{{ $product->name }}</p>
-    <p>価格：{{ $product->price }}円</p>
-    <p>説明：{{ $product->description }}</p>
-    <p>在庫数：{{ $product->stock }}</p>
+    <div class="detail-info">
+        <p><strong>商品名：</strong> {{ $product->name }}</p>
+        <p><strong>説明：</strong>{{ $product->description }}</p>
 
-    <a href="{{ route('products.edit', $product->id) }}">編集する</a>
+        <p><strong>画像：</strong></p>
+        <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" class="detail-image">
 
-    <form action="{{ route('products.destroy', $product->id) }}" method="POST" style="margin-top: 10px;">
-        @csrf
-        @method('DELETE')
-        <button type="submit">削除する</button>
-    </form>
+        <p><strong>金額：</strong> ￥{{ number_format($product->price) }}</p>
+        <p><strong>会社：</strong> {{ $product->company }}</p>
 
-    <a href="{{ route('products.index') }}">一覧に戻る</a>
+        <div class="favorite-section">
+            <button id="favorite-btn" class="border-0 bg-transparent"
+                data-product-id="{{ $product->id }}"
+                @if ($product->favoritedBy(Auth::user())) style="color: red;" @endif>
+                <i class="fas fa-heart"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="detail-actions">
+        <a href="{{ route('products.edit', $product->id) }}" class="btn btn-primary">編集する</a>
+
+        <form action="{{ route('products.destroy', $product->id) }}" method="POST" style="display:inline;">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="btn btn-danger">削除する</button>
+        </form>
+
+        <a href="{{ route('products.index') }}" class="btn btn-secondary">一覧に戻る</a>
+    </div>
+</div>
 @endsection
