@@ -21,10 +21,8 @@
 
             <p><strong>在庫数</strong></p>
                 <input type="number" name="stock" class="form-control">
-        </div>
 
-        <div class="form-group">
-            <label for="image"><strong>商品画像</strong></label>
+                <label for="image"><strong>商品画像</strong></label>
             <div class="file-input-wrapper">
                 <input type="file" name="image" id="image">
             </div>
