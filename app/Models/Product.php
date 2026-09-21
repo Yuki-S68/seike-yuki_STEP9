@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Favorite;
+use App\Models\Company;
+
 
 
 class Product extends Model
@@ -17,6 +19,11 @@ class Product extends Model
         'company_id',
         'img_path',
     ];
+
+        public function company()
+    {
+        return $this->belongsTo(Company::class);
+    }
 
     public function favoritedBy($user)
     {

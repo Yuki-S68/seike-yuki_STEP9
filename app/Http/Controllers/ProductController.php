@@ -5,13 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Http\Requests\ProductRequest;
+use Illuminate\Support\Facades\Auth;
+
 
 class ProductController extends Controller
 {
     public function index()
     {
-        // products テーブルの全データを取得
-        $products = Product::all();
+        // ログインしているユーザー以外の商品を取得
+        $products = Product::where('user_id', '!=', Auth::id())
+                            ->orderBy('id', 'asc')
+                            ->get();
 
         // Bladeに渡す
         return view('products.index', compact('products'));
@@ -97,5 +101,27 @@ class ProductController extends Controller
     //一覧へ戻る
     return redirect()->route('products.index');
     }
+
+    public function buy($id)
+    {
+        $product = Product::findOrFail($id);
+        return view('products.buy', compact('product'));
+    }
+
+    public function buyComplete(\App\Http\Requests\BuyRequest $request, $id)
+    {
+        $product = Product::findOrFail($id);
+
+        //在庫チェック
+        if ($product->stock < $request->quantity) {
+            return back()->withErrors(['quantity' => '在庫が不足しています。']);
+        }
+
+        //在庫を減らす
+        $product->stock -= $request->quantity;
+        $product->save();
+
+        return redirect()->route('products.index')->with('success', '購入が完了しました！');
+            }
 
 }

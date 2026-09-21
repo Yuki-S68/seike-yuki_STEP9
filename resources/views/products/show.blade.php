@@ -11,10 +11,10 @@
         <p><strong>説明：</strong>{{ $product->description }}</p>
 
         <p><strong>画像：</strong></p>
-        <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" class="detail-image">
+        <img src="{{ asset('storage/' . $product->img_path) }}" alt="{{ $product->name }}" class="detail-image">
 
         <p><strong>金額：</strong> ￥{{ number_format($product->price) }}</p>
-        <p><strong>会社：</strong> {{ $product->company }}</p>
+        <p><strong>会社：</strong> {{ $product->company->company_name }}</p>
 
         <div class="favorite-section">
             <button id="favorite-btn" class="border-0 bg-transparent"
@@ -26,15 +26,11 @@
     </div>
 
     <div class="detail-actions">
-        <a href="{{ route('products.edit', $product->id) }}" class="btn btn-primary">編集する</a>
 
-        <form action="{{ route('products.destroy', $product->id) }}" method="POST" style="display:inline;">
             @csrf
-            @method('DELETE')
-            <button type="submit" class="btn btn-danger">削除する</button>
-        </form>
+            <a href="{{ route('products.buy', $product->id) }}" class="btn btn-primary cart-btn">カートに追加</a>
 
-        <a href="{{ route('products.index') }}" class="btn btn-secondary">一覧に戻る</a>
+            <a href="{{ route('products.index') }}" class="btn btn-secondary">戻る</a>
     </div>
 </div>
 @endsection
