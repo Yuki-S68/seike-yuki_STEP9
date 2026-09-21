@@ -30,7 +30,7 @@
             <td>{{ $product->id }}</td>
             <td>{{ $product->name }}</td>
             <td>{{ $product->description }}</td>
-            <td><img src="{{ asset('storage/' . $product->image) }}" width="50"></td>
+            <td><img src="{{ asset('storage/' . $product->img_path) }}" width="50"></td>
             <td>{{ number_format($product->price) }}</td>
             <td><a href="{{ route('products.show', $product->id) }}" class="btn btn-success">詳細</a></td>
         </tr>

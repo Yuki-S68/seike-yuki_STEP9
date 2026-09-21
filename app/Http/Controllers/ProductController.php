@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Http\Requests\ProductRequest;
 
 class ProductController extends Controller
 {
@@ -25,7 +26,7 @@ class ProductController extends Controller
     {
 
         //画像ファイルの処理
-        $imgPath = null;
+        $imgPath = '';
 
         if ($request->hasFile('image')) {
             $imgPath = $request->file('image')->store('images', 'public');
@@ -75,27 +76,14 @@ class ProductController extends Controller
 
         //更新処理
         $product->update([
-            'name' => request->name,
-            'price' => request->price,
-            'description' => request->description,
-            'stock' => request->stock,
-            'img_path' => $imgPath,
-        ]);
-
-        return redirect()->route('products.index');
-
-        //商品を取得
-        $product = Product::findOrFail($id);
-
-        //更新処理
-        $product->update([
             'name' => $request->name,
             'price' => $request->price,
             'description' => $request->description,
             'stock' => $request->stock,
+            'img_path' => $imgPath,
         ]);
-    //一覧へ戻る
-    return redirect()->route('products.index');
+
+        return redirect()->route('products.index');
     }
 
     public function destroy($id)
