@@ -6,7 +6,7 @@
 
     <h1>商品一覧</h1>
 
-<form method="GET" action="{{ route('products.index') }}">
+<form  class="search-form" method="GET" action="{{ route('products.index') }}">
     <input type="text" name="keyword" placeholder="商品名を入力">
     <input type="number" name="min_price" placeholder="最低価格">
     <input type="number" name="max_price" placeholder="最高価格">

@@ -21,15 +21,15 @@ class ProductController extends Controller
         return view('products.create');
     }
 
-    public function store(Request $request)
+    public function store(ProductRequest $request)
     {
-        //バリデーション
-        $request->validate([
-            'name' => 'required',
-            'price' => 'required|integer',
-            'description' => 'required',
-            'stock' => 'required|integer',
-        ]);
+
+        //画像ファイルの処理
+        $imgPath = null;
+
+        if ($request->hasFile('image')) {
+            $imgPath = $request->file('image')->store('images', 'public');
+        }
 
         //商品登録
         Product::create([
@@ -39,6 +39,7 @@ class ProductController extends Controller
             'stock' => $request->stock,
             'user_id' => 1,
             'company_id' => 1,
+            'img_path' => $imgPath,
         ]);
 
         //商品一覧へのリダイレクト
@@ -60,15 +61,28 @@ class ProductController extends Controller
         return view('products.edit', compact('product'));
     }
 
-    public function update(Request $request, $id)
+    public function update(ProductRequest $request, $id)
     {
-        //バリデーション
-        $request->validate([
-            'name' => 'required',
-            'price' => 'required|integer',
-            'description' => 'required',
-            'stock' => 'required|integer',
+        $product = Product::findOrFail($id);
+
+        //既存画像を保持
+        $imgPath =$product->img_path;
+
+        //新しい画像があれば上書き
+        if ($request->hasFile('image')) {
+            $imgPath = $request->file('image')->store('images', 'public');
+        }
+
+        //更新処理
+        $product->update([
+            'name' => request->name,
+            'price' => request->price,
+            'description' => request->description,
+            'stock' => request->stock,
+            'img_path' => $imgPath,
         ]);
+
+        return redirect()->route('products.index');
 
         //商品を取得
         $product = Product::findOrFail($id);

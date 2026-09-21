@@ -6,7 +6,7 @@
 <div class="detail-card">
     <h1>商品登録</h1>
 
-    <form action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data">
+    <form class="create-form" action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
 
         <div class="detail-info">
@@ -27,11 +27,10 @@
                 <input type="file" name="image" id="image">
             </div>
         </div>
-    </form>
-
         <div class="detail-actions">
             <a href="{{ route('products.index') }}" class="btn btn-secondary">戻る</a>
             <button type="submit" class="btn btn-primary">登録</button>
         </div>
+    </form>
 </div>
 @endsection
