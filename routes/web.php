@@ -17,3 +17,5 @@ Route::get('/products/{id}/buy', [ProductController::class, 'buy'])->name('produ
 Route::post('/products/{id}/buy', [ProductController::class, 'buyComplete'])->name('products.buyComplete');
 
 Route::resource('products', ProductController::class);
+
+Route::get('/mypage', [MypageController::class, 'index'])->name('mypage');
