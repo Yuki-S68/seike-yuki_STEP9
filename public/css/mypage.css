@@ -1,0 +1,45 @@
+.mypage-container {
+    width: 80%;
+    margin: 30px auto;
+}
+
+.user-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.user-info .right {
+    text-align: left;
+    padding-right: 400px;
+    margin-top: 40px;
+}
+
+.btn-common {
+    display: inline-block;
+    padding: 6px 12px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn-common:hover {
+    background-color: #0056b3;
+}
+
+.edit-btn {
+    margin-bottom: 10px;
+}
+
+.create-btn  {
+    margin-bottom: 10px;
+}
+
+.create-btn-wrap {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+}

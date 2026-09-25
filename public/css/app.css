@@ -12,6 +12,7 @@ header {
     color: #333;
     padding: 20px 0;
     border-bottom: 1px solid #ddd;
+    margin-bottom: 24px;
 }
 
 /* ログアウトボタン */
@@ -229,3 +230,11 @@ form button:hover {
     height: 35px !important;
 }
 
+/* フッター */
+footer {
+    background-color: #fafafa;
+    color: #333;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 40px;
+}
