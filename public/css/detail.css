@@ -1,0 +1,49 @@
+.detail-card {
+    background-color: #fff;
+    width: 90%;
+    max-width: 600px;
+    margin: 40px auto;
+    padding:40px;
+    border-radius:12px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+
+.detail-card h1 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.detail-info {
+    line-height: 1.8;
+}
+
+.detail-image {
+    display: block;
+    margin: 20px auto;
+    max-width: 300px;
+    border-radius: 8px;
+}
+
+.detail-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.btn {
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #fff;
+}
+
+.btn-primary { background-color: #007bff; }
+.btn-danger { background-color: #dc3545; }
+.btn-secondary { background-color: #6c757d; }
+
+.btn:hover {
+    opacity: 0.9;
+}

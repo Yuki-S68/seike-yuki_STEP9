@@ -25,4 +25,14 @@ class MypageController extends Controller
                     
         return view('mypage.index', compact('user', 'myProducts', 'sales'));
     }
+
+    public function showSaleItem($id)
+    {
+        //ログインユーザーの出品商品を表示
+        $product = Product::where('id', $id)
+                          ->where('user_id', auth()->id())
+                          ->firstOrFail();
+        //sale_item.blade.phpｗｐ表示
+        return view('mypage.sale_item', compact('product'));
+    }
 }
