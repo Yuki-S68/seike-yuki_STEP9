@@ -29,7 +29,7 @@
             <button type="submit" class="btn btn-danger">削除する</button>
         </form>
 
-        <button onclick="location.href='{{ route('products.index') }}'" class="btn btn-common">戻る</button>
+        <button onclick="location.href='{{ route('products.index') }}'" class="btn btn-back">戻る</button>
     </div>
 </div>
 @endsection

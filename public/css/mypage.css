@@ -26,6 +26,8 @@
     font-weight: bold;
     transition: background-color 0.3s;
     cursor: pointer;
+    line-height: 1.5;
+    font-size: 16px;
 }
 
 .btn-common:hover,
@@ -35,7 +37,7 @@
 }
 
 .edit-btn {
-    margin-bottom: 10px;
+    margin: 0;
 }
 
 .create-btn  {
@@ -58,10 +60,26 @@
     border-radius: 4px;
     font-weight: bold;
     cursor: pointer;
+    line-height: 1.5;
+    font-size: 16px;
 }
 
 .btn-danger:hover {
     background-color: #c82333;
+}
+
+.btn-back {
+    display:inline-block;
+    padding: 8px 16px;
+    background-color: #6c757d;
+    color:#fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    border-weight: bold;
+    cursor: pointer;
+    line-height: 1.5;
+    font-size:16px;
 }
 
 .detail-card {
@@ -86,6 +104,7 @@
 }
 
 .detail-actions form {
-    display: inline-block;
+    display: flex;
+    align-items: center;
     margin: 0;
 }
