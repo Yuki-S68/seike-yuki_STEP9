@@ -29,3 +29,6 @@ Route::get('/mypage/sale_item/{id}', [MypageController::class, 'showSaleItem'])
 
 Route::get('/mypage/products/{id}/edit', [MypageController::class, 'editItem'])
      ->name('mypage.edit_item');
+
+Route::get('/account/edit', [AccountController::class, 'edit'])->name('account.edit');
+Route::post('/account/update', [AccountController::class, 'update'])->name('account.update');
