@@ -1,0 +1,144 @@
+/* 商品詳細カード */
+.detail-card {
+    background-color: #fff;
+    width: 90%;
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.detail-card h1 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+/* 商品情報 */
+.detail-info {
+    line-height: 1.8;
+}
+
+/* 商品画像 */
+.detail-image {
+    display: block;
+    margin: 20px auto;
+    max-width: 300px;
+    border-radius: 8px;
+}
+
+/* お気に入り */
+.favorite-section {
+    margin-top: 10px;
+}
+
+/* 詳細ページのボタン */
+.detail-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.detail-actions form {
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
+/* 商品編集ページ */
+.edit-card {
+    background: #fff;
+    width: 90%;
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* タイトル */
+.edit-card h1 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+/* フォーム要素 */
+.edit-card .form-group {
+    margin-bottom: 20px;
+}
+
+.edit-card label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+main .edit-card input,
+main .edit-card textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc !important;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 16px !important;
+}
+
+/* 商品画像プレビュー */
+.preview-image {
+    width: 150px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+/* ボタンは位置 */
+.form-actions {
+    display: flex;
+    justify-content: flex-start;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* ボタン共通 */
+.btn-common {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-back {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #6c757d;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-back:hover {
+    background-color: #5a6268;
+}
+
+/* 商品購入画面 */
+.buy-quantity-wrap {
+    margin: 20px 0;
+}
+
+.detail-actions form .buy-quantity {
+    width: 120px !important;
+}
+
+.detail-actions a.back-btn {
+    height: 35px !important;
+}

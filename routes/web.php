@@ -24,7 +24,8 @@ Route::get('/mypage', [MypageController::class, 'index'])->name('mypage.index');
 
 Route::get('/account/edit', [AccountController::class, 'edit'])->name('account.edit');
 
-Route::resource('products', ProductController::class);
-
 Route::get('/mypage/sale_item/{id}', [MypageController::class, 'showSaleItem'])
      ->name('mypage.sale_item');
+
+Route::get('/mypage/products/{id}/edit', [MypageController::class, 'editItem'])
+     ->name('mypage.edit_item');

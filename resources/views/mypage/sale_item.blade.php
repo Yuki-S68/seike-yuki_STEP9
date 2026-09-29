@@ -21,7 +21,7 @@
     </div>
 
     <div class="detail-actions">
-        <button onclick="location.href='{{ route('products.edit', $product->id) }}'" class="btn-common edit-btn">編集</button>
+        <button onclick="location.href='{{ route('mypage.edit_item', $product->id) }}'" class="btn-common edit-btn">編集</button>
 
         <form action="{{ route('products.destroy', $product->id) }}" method="POST" onsubmit="return confirm('削除してもよろしいですか？');">
             @csrf

@@ -35,4 +35,10 @@ class MypageController extends Controller
         //sale_item.blade.phpｗｐ表示
         return view('mypage.sale_item', compact('product'));
     }
+
+    public function editItem($id)
+    {
+        $product = Product::findOrFail($id);
+        return view('mypage.edit_item', compact('product'));
+    }
 }
