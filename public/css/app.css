@@ -7,7 +7,7 @@ body {
 }
 
 /* ヘッダー */
-header {
+.layout__header {
     background-color: #fafafa;
     color: #333;
     padding: 20px 0;
@@ -15,12 +15,30 @@ header {
     margin-bottom: 24px;
 }
 
-header form {
-    margin-left: auto;
+.layout__header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.layout__header-left {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.layout__title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.layout__user {
+    font-size: 14px;
+    color: #555;
 }
 
 /* ログアウトボタン */
-.logout-btn {
+.layout__logout-button {
     padding: 6px 14px;
     border-radius: 6px;
     border: 1px solid #007bff;
@@ -30,95 +48,26 @@ header form {
     cursor: pointer;
 }
 
-/* タイトル */
-h1 {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 20px;
+.layout__logout-button:hover {
+    background-color: #e6f0ff;
 }
 
-/* テーブル */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: #fff;
-}
-
-th, td {
-    border: 1px solid #ccc;
-    padding: 10px;
-}
-
-th {
-    background-color: #f2f2f2;
-}
-
-/* 画像 */
-table img {
-    border-radius: 4px;
-}
-
-/* 共通ボタン */
-.btn-common {
-    display: inline-block;
-    padding: 8px 16px;
-    background-color: #007bff;
-    color: #fff;
-    text-decoration: none;
-    border: none;
-    border-radius: 4px;
-    font-weight: bold;
-    transition: background-color 0.3s;
-    cursor: pointer;
-    line-height: 1.5;
-    font-size: 16px;
-}
-
-.btn-common:hover {
-    background-color: #0056b3;
-}
-
-.btn-danger {
-    display: inline-block;
-    padding: 8px 16px;
-    background-color: #dc3545;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.btn-danger:hover {
-    background-color: #c82333;
-}
-
-.btn-back {
-    display:inline-block;
-    padding: 8px 16px;
-    background-color: #6c757d;
-    color:#fff;
-    border: none;
-    border-radius: 4px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-/* フォーム */
-.form-control {
-    width: 100%;
-    margin-bottom: 15px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    box-sizing: border-box;
+/* メインコンテンツ */
+.layout__main {
+    width: 80%;
+    margin: 0 auto;
 }
 
 /* フッター */
-footer {
+.layout__footer {
     background-color: #fafafa;
     color: #333;
     padding: 20px 0;
     text-align: center;
     margin-top: 40px;
+}
+
+.layout__footer-text {
+    font-size: 14px;
+    color: #666;
 }
