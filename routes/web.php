@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\MypageController;
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\ContactController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -32,3 +33,7 @@ Route::get('/mypage/products/{id}/edit', [MypageController::class, 'editItem'])
 
 Route::get('/account/edit', [AccountController::class, 'edit'])->name('account.edit');
 Route::post('/account/update', [AccountController::class, 'update'])->name('account.update');
+
+Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
+Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
+Route::get('/contact/thanks', [ContactController::class, 'thanks'])->name('contact.thanks');
