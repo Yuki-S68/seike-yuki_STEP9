@@ -11,7 +11,19 @@
 
 <body class="layout">
 
-    @if (!Request::is('mypage'))
+    {{-- ▼ログイン・登録ページ専用ヘッダー --}}
+    @if (Request::is('login') || Request::is('register'))
+        <header class="auth-header d-flex justify-content-between align-items-center p-3 bg-light">
+            <span class="fw-bold">Laravel</span>
+            <div>
+                <a href="{{ route('login') }}" class="text-decoration-none me-3">Login</a>
+                <a href="{{ route('register') }}" class="text-decoration-none">Register</a>
+            </div>
+        </header>
+    @endif
+
+    {{-- ▼ECサイトヘッダー（商品ページ・マイページ用） --}}
+    @if (!Request::is('login') && !Request::is('register') && !Request::is('mypage'))
         <header class="layout__header">
             <div class="layout__header-container">
                 <div class="layout__header-left">
@@ -38,4 +50,5 @@
     </footer>
 
 </body>
+
 </html>
