@@ -14,9 +14,10 @@
     {{-- 商品ページ専用CSS --}}
     <link rel="stylesheet" href="{{ asset('css/product.css') }}">
 </head>
-<body>
 
-    <main class="py-4">
+<body class="layout">
+
+    <main class="layout__main">
         @yield('content')
     </main>
 
