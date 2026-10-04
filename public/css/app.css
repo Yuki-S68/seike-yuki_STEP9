@@ -74,14 +74,16 @@ body {
 }
 
 /* メインコンテンツ */
-.layout__main {
-    width: 80%;
-    margin: 0 auto;
-    padding-top:0;
-    display: flex;
+.layout__fluid {
+    width: 100vw;
+    max-width: none;
+    margin: 0;
+    padding:0 80px;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    box-sizing: border-box;
+    display: block;
 }
 
 /* Bootstrapのcontainer余白リセット */

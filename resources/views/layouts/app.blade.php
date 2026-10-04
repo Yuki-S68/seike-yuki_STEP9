@@ -42,7 +42,7 @@
         </header>
     @endif
 
-    <main class="layout__main">
+    <main class="layout__fluid">
         @yield('content')
     </main>
 
