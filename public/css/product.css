@@ -86,6 +86,26 @@
     margin-top: 10px;
 }
 
+/* お気に入りハートボタン */
+.product__favorite-button {
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 28px;
+    color: transparent;
+    -webkit-text-stroke: 1.5px #000;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.product__favorite-button.active {
+    color: red;
+    -webkit-text-stroke: 0;
+}
+
+
+
+
 /* 詳細ページのボタン */
 .product__detail-actions {
     display: flex;

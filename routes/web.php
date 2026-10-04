@@ -39,3 +39,5 @@ Route::post('/contact', [ContactController::class, 'submit'])->name('contact.sub
 Route::get('/contact/thanks', [ContactController::class, 'thanks'])->name('contact.thanks');
 
 Route::get('/contact', [ContactController::class, 'showForm'])->name('contact');
+
+Route::post('/favorite/{product}', [FavoriteController::class, 'toggle'])->name('favorite.toggle');
