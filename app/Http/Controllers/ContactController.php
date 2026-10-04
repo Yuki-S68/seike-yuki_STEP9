@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ContactRequest;
+use Illiminate\Http\Request;
 
 class ContactController extends Controller
 {
@@ -21,5 +22,10 @@ class ContactController extends Controller
     public function thanks()
     {
         return view('contact.thanks');
+    }
+
+    public function showForm()
+    {
+        return view('contact.index');
     }
 }

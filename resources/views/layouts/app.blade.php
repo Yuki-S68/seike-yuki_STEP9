@@ -47,7 +47,15 @@
     </main>
 
     <footer class="layout__footer">
-        <p class="layout__footer-text">&copy; 2026 ECサイト</p>
+        <div class="footer__inner">
+            <a href="{{ route('contact') }}" class="footer__contact-button">お問い合わせ</a>
+
+            <div class="footer__nav">
+                <a href="{{ route('products.index') }}" class="footer__link">Home</a>
+                <a href="{{ route('mypage.index') }}" class="footer__link">マイページ</a>
+            </div>
+
+            <p class="footer__copy">&copy; 2024 Company, Inc</p>
     </footer>
 
 </body>

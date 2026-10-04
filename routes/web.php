@@ -37,3 +37,5 @@ Route::post('/account/update', [AccountController::class, 'update'])->name('acco
 Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
 Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
 Route::get('/contact/thanks', [ContactController::class, 'thanks'])->name('contact.thanks');
+
+Route::get('/contact', [ContactController::class, 'showForm'])->name('contact');
