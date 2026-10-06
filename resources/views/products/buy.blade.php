@@ -49,7 +49,7 @@
                         購入する
                     </button>
 
-                    <a href="{{ route('products.index') }}"
+                    <a href="{{ route('products.show', $product->id) }}"
                     class="product-detail__button product-detail__button--back">
                         戻る
                     </a>
