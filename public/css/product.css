@@ -86,8 +86,8 @@
     margin-top: 10px;
 }
 
-/* お気に入りハートボタン */
-.product__favorite-button {
+/* お気に入りボタン */
+.product-detail__favorite-button {
     background: none;
     border: none;
     outline: none;
@@ -98,13 +98,14 @@
     transition: all 0.2s ease;
 }
 
-.product__favorite-button.active {
+.product-detail__favorite-button.active {
     color: red;
     -webkit-text-stroke: 0;
 }
 
-
-
+.product-detail__favorite-button i {
+    pointer-events: none;
+}
 
 /* 詳細ページのボタン */
 .product__detail-actions {

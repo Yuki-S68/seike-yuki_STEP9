@@ -5,6 +5,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\MypageController;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\FavoriteController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -40,4 +41,5 @@ Route::get('/contact/thanks', [ContactController::class, 'thanks'])->name('conta
 
 Route::get('/contact', [ContactController::class, 'showForm'])->name('contact');
 
-Route::post('/favorite/{product}', [FavoriteController::class, 'toggle'])->name('favorite.toggle');
+Route::post('/products/{product}/favorite', [FavoriteController::class, 'addFavorite'])->name('favorite.add');
+Route::delete('/products/{product}/favorite', [FavoriteController::class, 'removeFavorite'])->name('favorite.remove');

@@ -3,6 +3,10 @@
 @section('title', '商品詳細')
 
 @section('content')
+<meta name="csrf-token" content="{{ csrf_token() }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+<script src="{{ asset('js/favorite.js') }}"></script>
+
 <div class="product-detail">
     <h1 class="product-detail__title">商品詳細</h1>
 
@@ -25,6 +29,10 @@
                     @if ($product->favoritedBy(Auth::user())) style="color: red;" @endif>
                     <i class="fas fa-heart"></i>
             </button>
+
+            <span id="favorite-count" class="product-detail__favorite-count">
+                {{ $product->favorites()->count() }}
+            </span>
         </div>
     </div>
 

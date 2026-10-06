@@ -4,9 +4,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (favoriteBtn) {
         favoriteBtn.addEventListener('click', () => {
             const productId = favoriteBtn.dataset.productId;
+            const method = favoriteBtn.style.color === 'red' ? 'DELETE' : 'POST';
 
-            fetch(`/favorite/${productId}`, {
-                method: 'POST',
+            fetch(`/products/${productId}/favorite`, {
+                method: method,
                 headers: {
                     'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
                     'Content-Type': 'application/json'
@@ -14,11 +15,13 @@ document.addEventListener('DOMContentLoaded', () => {
             })
             .then(response => response.json())
             .then(data => {
-                if (date.status === 'added') {
+                if (data.status === 'added') {
                     favoriteBtn.style.color = "red";
                 } else {
-                    favoriteBtn.style.color = 'black';
+                    favoriteBtn.style.color = '';
                 }
+
+                document.getElementById('favorite-count').textContent = data.favorites_count;
             })
             .catch(error => console.error('Error:', error));
         });
