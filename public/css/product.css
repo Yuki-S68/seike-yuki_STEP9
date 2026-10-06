@@ -52,37 +52,53 @@
 
 
 /* 商品詳細カード */
-.product__detail-card {
-    background-color: #fff;
+
+.product-detail {
     width: 90%;
-    max-width: 600px;
-    margin: 40px auto;
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
-.product__detail-title {
-    font-size: 28px;
-    font-weight: bold;
-    margin-bottom: 30px;
-}
-
-/* 商品情報 */
-.product__detail-info {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding-left: 0;
+    text-align: left;
+    font-size: 1.5rem;
     line-height: 1.8;
 }
 
+.product-detail__title {
+    font-size: 42px;
+    font-weight: bold;
+    margin-bottom: 60px;
+    text-align: left;
+    padding-left: 420px;
+}
+
+/* 商品情報 */
+.product-detail__info {
+    margin: 0 auto;
+    width: fit-content;
+}
+
 /* 商品画像 */
-.product__detail-image {
+.product-detail__image {
     display: block;
-    margin: 20px auto;
+    margin: 30px auto;
     max-width: 300px;
     border-radius: 8px;
 }
 
+.product-detail__image-wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.product-detail__text {
+    font-weight: bold;
+    margin: 0;
+}
+
 /* お気に入り */
-.product__favorite-section {
+.product-detail__favorite {
     margin-top: 10px;
 }
 
@@ -96,6 +112,7 @@
     -webkit-text-stroke: 1.5px #000;
     cursor: pointer;
     transition: all 0.2s ease;
+    margin-bottom: 30px;
 }
 
 .product-detail__favorite-button.active {
@@ -108,17 +125,48 @@
 }
 
 /* 詳細ページのボタン */
-.product__detail-actions {
+.product-detail__actions {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 15px;
-    margin-top: 30px;
+    margin-top: calc;
+    padding-left: 420px;
 }
 
-.product__detail-actions form {
+.product-detail__actions form {
     display: flex;
     align-items: center;
     margin: 0;
+}
+
+.product-detail__button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background-color 0.2s;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.product-detail__button:hover {
+    background-color: #0056b3;
+}
+
+.product-detail__button--cart {
+    background-color: #007bff;
+}
+
+.product-detail__button--back {
+    background-color: #6c757d;
+}
+
+.product-detail__button--back:hover {
+    background-color: #5a6268;
 }
 
 /* 商品編集ページ */
@@ -218,4 +266,26 @@
 
 .product__back-btn {
     height: 35px !important;
+}
+
+/* 在庫切れエラー */
+.product-detail__error {
+    color: red;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+/* 購入完了アラート */
+.product-list__alert {
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.product-list__alert--success {
+    background: #fff8db;
+    border-left: 6px solid #f1c40f;
+    color: #7a5e00;
 }

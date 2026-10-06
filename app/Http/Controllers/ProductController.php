@@ -112,9 +112,11 @@ class ProductController extends Controller
     {
         $product = Product::findOrFail($id);
 
-        //在庫チェック
-        if ($product->stock < $request->quantity) {
-            return back()->withErrors(['quantity' => '在庫が不足しています。']);
+        // 在庫チェック
+        if ($request->quantity > $product->stock) {
+            return back()->withErrors([
+                'quantity' => '在庫より多い数量は購入できません。',
+            ]);
         }
 
         //在庫を減らす
@@ -123,5 +125,4 @@ class ProductController extends Controller
 
         return redirect()->route('products.index')->with('success', '購入が完了しました！');
             }
-
 }

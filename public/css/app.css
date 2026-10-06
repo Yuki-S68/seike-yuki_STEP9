@@ -35,6 +35,13 @@ body {
     color: #333;
 }
 
+.layout__main {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: auto;
+}
+
 .layout__nav {
     display: flex;
     align-items: center;
@@ -81,7 +88,7 @@ body {
     padding:0 80px;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    min-height: auto;
     box-sizing: border-box;
     display: block;
 }
