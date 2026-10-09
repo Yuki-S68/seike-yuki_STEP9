@@ -39,12 +39,23 @@
                    class="product-edit__input">
         </div>
 
-        <div class="product-edit__actions">
-            <button type="submit"
-                    class="product-edit__button product-edit__button--primary">更新する</button>
+        <div class="product-edit__group">
+            <label for="image" class="product-edit__label">商品画像</label>
+            @if ($product->img_path)
+                <img src="{{ asset('storage/' . $product->img_path) }}"
+                alt="{{ $product->name }}"
+                class="product-edit__image">
+            @endif
+            <input type="file" name="image" id="image" class="product-edit__file">
+        </div>
 
-            <a href="{{ route('products.index') }}"
-               class="product-edit__button product-edit__button--back">一覧に戻る</a>
+        <div class="product-edit__actions">
+            <a href="{{ route('products.show', $product->id) }}"
+               class="product-detail-edit__button product-detail-edit__button--back">戻る</a>
+
+               <button type="submit"
+                    class="product-detail-edit__button product-detail-edit__button--primary">更新</button>
+
         </div>
     </form>
 </div>

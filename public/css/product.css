@@ -290,7 +290,8 @@
     color: #7a5e00;
 }
 
-/* 商品新規登録：全体の枠 */
+/* 商品新規登録、商品編集：全体の枠 */
+.product-edit,
 .product-create {
     max-width: 100%;
     margin: 0 auto;
@@ -299,6 +300,7 @@
 }
 
 /* タイトル */
+.product-edit__title,
 .product-create__title {
     font-size: 28px;
     font-weight: bold;
@@ -307,6 +309,7 @@
 }
 
 /* 各入力ブロック */
+.product-edit__group,
 .product-create__group {
     width: 100%;
     max-width: 700px;
@@ -314,6 +317,7 @@
 }
 
 /* ラベル */
+.product-edit__label,
 .product-create__label {
     display: block;
     margin-bottom: 6px;
@@ -322,6 +326,7 @@
 }
 
 /* フォーム */
+.product-edit__form,
 .product-create__form {
     display: flex;
     flex-direction: column;
@@ -330,9 +335,10 @@
 
 
 /* テキスト入力 */
+.product-edit__input,
+.product-edit__textarea,
 .product-create__input,
-.product-create__textarea,
-.product-create__file {
+.product-create__textarea{
     width: 1300px;
     padding: 10px;
     border: 1px solid #ccc;
@@ -342,36 +348,54 @@
 }
 
 /* テキストエリア */
+.product-edit__textarea,
 .product-create__textarea {
     height: 120px;
 }
 
 /* ボタンエリア */
+.product-edit__actions,
 .product-create__actions {
     display: flex;
     justify-content: flex-start;
-    gap: 30px;
+    gap: 10px;
     margin-top: 30px;
 }
 
 /* ボタン共通 */
-.product-create__button {
-    padding: 12px 20px;
-    border-radius: 6px;
-    font-size: 16px;
-    text-decoration: none;
-    text-align: center;
+.product-detail-edit__button,
+.product-detail-create__button {
     display: inline-block;
+    padding: 10px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
 }
 
 /* 戻るボタン */
-.product-create__button--back {
-    background: #ccc;
-    color: #333;
+.product-detail-edit__button--back,
+.product-detail-create__button--back {
+    background: #6c757d;
+    color: #fff;
 }
 
+.product-detail-edit__button--back:hover,
+.product-detail-create__button--back:hover {
+    background: #5a6268;
+}
+
+
 /* 登録ボタン */
-.product-create__button--primary {
-    background: #3498db;
+.product-detail-edit__button--primary,
+.product-detail-create__button--primary {
+    background: #007bff;
     color: #fff;
+}
+
+.product-detail-edit__button--primary:hover,
+.product-detail-create__button--primary:hover {
+    background: #0056b3;
 }

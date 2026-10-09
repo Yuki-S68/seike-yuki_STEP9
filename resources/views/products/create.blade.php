@@ -39,12 +39,12 @@
 
         <div class="product-create__actions">
             <a href="{{ route('mypage.index') }}"
-               class="product-detail__button product-detail__button--back">
+               class="product-detail-create__button product-detail-create__button--back">
                 戻る
             </a>
 
             <button type="submit"
-                    class="product-detail__button product-detail__button--primary">
+                    class="product-detail-create__button product-detail-create__button--primary">
                 登録
             </button>
         </div>
