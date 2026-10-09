@@ -303,13 +303,13 @@
     font-size: 28px;
     font-weight: bold;
     margin-bottom: 30px;
-    text-align: center;
+    text-align: left;
 }
 
 /* 各入力ブロック */
 .product-create__group {
     width: 100%;
-    max-width: 500px;
+    max-width: 700px;
     margin-bottom: 20px;
 }
 
@@ -325,7 +325,7 @@
 .product-create__form {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
 }
 
 
@@ -333,7 +333,7 @@
 .product-create__input,
 .product-create__textarea,
 .product-create__file {
-    width: 100%;
+    width: 1300px;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 6px;
@@ -349,7 +349,7 @@
 /* ボタンエリア */
 .product-create__actions {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 30px;
     margin-top: 30px;
 }
