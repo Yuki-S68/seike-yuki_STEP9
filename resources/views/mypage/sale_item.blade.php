@@ -1,4 +1,4 @@
-@extends('layouts.app_noheader')
+@extends('layouts.app')
 
 @section('title', '出品商品詳細')
 

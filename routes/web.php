@@ -8,7 +8,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FavoriteController;
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/login');
 });
 
 Auth::routes();
@@ -22,7 +22,9 @@ Route::post('/products/{id}/buy', [ProductController::class, 'buyComplete'])->na
 
 Route::resource('products', ProductController::class);
 
-Route::get('/mypage', [MypageController::class, 'index'])->name('mypage.index');
+Route::get('/mypage', [MypageController::class, 'index'])
+    ->middleware('auth')
+    ->name('mypage.index');
 
 Route::get('/account/edit', [AccountController::class, 'edit'])->name('account.edit');
 

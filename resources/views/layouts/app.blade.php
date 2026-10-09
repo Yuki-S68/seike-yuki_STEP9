@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/product.css') }}">
     <link rel="stylesheet" href="{{ asset('css/contact.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/mypage.css') }}">
+
 </head>
 
 <body class="layout">
@@ -27,7 +29,7 @@
     @endif
 
     {{-- ECサイトヘッダー（商品ページ・マイページ用） --}}
-    @if (!Request::is('login') && !Request::is('register') && !Request::is('mypage*'))
+    @if (!Request::is('login') && !Request::is('register'))
         <header class="layout__header">
             <div class="layout__header-container">
                 <h3 class="layout__title">Cytech EC</h3>

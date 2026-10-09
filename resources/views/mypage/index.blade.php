@@ -9,13 +9,13 @@
     <div class="mypage__user-info">
         <div class="mypage__user-left">
             <a href="{{ route('account.edit') }}" class="mypage__button mypage__button--edit">アカウント編集</a>
-            <p class="mypage__text">ユーザ名：{{ $user->name }}</p>
-            <p class="mypage__text">Eメール：{{ $user->email }}</p>
+            <p>ユーザ名：{{ $user->name }}</p>
+            <p>Eメール：{{ $user->email }}</p>
         </div>
 
         <div class="mypage__user-right">
-            <p class="mypage__text">名前：{{ $user->name_kanji }}</p>
-            <p class="mypage__text">カナ：{{ $user->name_kana }}</p>
+            <p>名前：{{ $user->name_kanji }}</p>
+            <p>カナ：{{ $user->name_kana }}</p>
         </div>
     </div>
 
@@ -26,19 +26,25 @@
     </div>
 
     <table class="mypage__table">
-        <thead class="mypage__table-head">
+        <thead>
             <tr>
-                <th>商品番号</th><th>商品名</th><th>商品説明</th><th>料金(¥)</th><th></th>
+                <th>商品番号</th>
+                <th>商品名</th>
+                <th>商品説明</th>
+                <th>料金(¥)</th>
+                <th></th>
             </tr>
         </thead>
-        <tbody class="mypage__table-body">
+        <tbody>
             @foreach ($myProducts as $product)
             <tr>
                 <td>{{ $product->id }}</td>
                 <td>{{ $product->name }}</td>
                 <td>{{ $product->description }}</td>
                 <td>{{ number_format($product->price) }}</td>
-                <td><a href="{{ route('products.show', $product->id) }}" class="mypage__button mypage__button--detail">詳細</a></td>
+                <td>
+                    <a href="{{ route('products.show', $product->id) }}" class="mypage__button mypage__button--detail">詳細</a>
+                </td>
             </tr>
             @endforeach
         </tbody>
@@ -47,12 +53,15 @@
     <h2 class="mypage__subtitle">＜購入した商品＞</h2>
 
     <table class="mypage__table">
-        <thead class="mypage__table-head">
+        <thead>
             <tr>
-                <th>商品名</th><th>商品説明</th><th>料金(¥)</th><th>個数</th>
+                <th>商品名</th>
+                <th>商品説明</th>
+                <th>料金(¥)</th>
+                <th>個数</th>
             </tr>
         </thead>
-        <tbody class="mypage__table-body">
+        <tbody>
             @foreach ($sales as $sale)
             <tr>
                 <td>{{ $sale->product->name }}</td>
@@ -63,6 +72,5 @@
             @endforeach
         </tbody>
     </table>
-
 </div>
 @endsection
