@@ -43,7 +43,7 @@
         <div class="product-detail__actions">
                 @csrf
                 <a href="{{ route('products.buy', $product->id) }}"
-                class="product-detail__button product-detail__button--cart">カートに追加</a>
+                class="product-detail__button product-detail__button--primary">カートに追加</a>
 
                 <a href="{{ route('products.index') }}"
                 class="product-detail__button product-detail__button--back">戻る</a>

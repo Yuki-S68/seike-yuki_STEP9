@@ -45,7 +45,7 @@
 
                 <div class="product-detail__actions">
                     <button type="submit"
-                            class="product-detail__button product-detail__button--cart">
+                            class="product-detail__button product-detail__button--primary">
                         購入する
                     </button>
 

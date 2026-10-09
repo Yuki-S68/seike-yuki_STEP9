@@ -38,11 +38,17 @@
         </div>
 
         <div class="product-create__actions">
-            <a href="{{ route('products.index') }}"
-               class="product-create__button product-create__button--back">戻る</a>
+            <a href="{{ route('mypage.index') }}"
+               class="product-detail__button product-detail__button--back">
+                戻る
+            </a>
 
-            <button type="submit" class="product-create__button product-create__button--submit">登録</button>
+            <button type="submit"
+                    class="product-detail__button product-detail__button--primary">
+                登録
+            </button>
         </div>
+
     </form>
 </div>
 @endsection

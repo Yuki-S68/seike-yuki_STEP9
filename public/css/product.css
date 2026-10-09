@@ -157,7 +157,7 @@
     background-color: #0056b3;
 }
 
-.product-detail__button--cart {
+.product-detail__button--primary {
     background-color: #007bff;
 }
 
@@ -288,4 +288,90 @@
     background: #fff8db;
     border-left: 6px solid #f1c40f;
     color: #7a5e00;
+}
+
+/* 商品新規登録：全体の枠 */
+.product-create {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 30px;
+    background: #fff;
+}
+
+/* タイトル */
+.product-create__title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* 各入力ブロック */
+.product-create__group {
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 20px;
+}
+
+/* ラベル */
+.product-create__label {
+    display: block;
+    margin-bottom: 6px;
+    text-align: left;
+    font-weight: bold;
+}
+
+/* フォーム */
+.product-create__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* テキスト入力 */
+.product-create__input,
+.product-create__textarea,
+.product-create__file {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    background-color: #fafafa;
+}
+
+/* テキストエリア */
+.product-create__textarea {
+    height: 120px;
+}
+
+/* ボタンエリア */
+.product-create__actions {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+/* ボタン共通 */
+.product-create__button {
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-size: 16px;
+    text-decoration: none;
+    text-align: center;
+    display: inline-block;
+}
+
+/* 戻るボタン */
+.product-create__button--back {
+    background: #ccc;
+    color: #333;
+}
+
+/* 登録ボタン */
+.product-create__button--primary {
+    background: #3498db;
+    color: #fff;
 }
