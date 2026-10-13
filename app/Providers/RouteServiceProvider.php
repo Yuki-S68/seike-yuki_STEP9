@@ -10,7 +10,7 @@ class RouteServiceProvider extends ServiceProvider
     /**
      * ログイン後の遷移先
      */
-    public const HOME = '/products'; // ← 商品一覧へ遷移させる
+    public const HOME = '/products';
 
     /**
      * ルートの読み込み
