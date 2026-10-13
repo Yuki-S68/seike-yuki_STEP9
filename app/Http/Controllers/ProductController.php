@@ -57,7 +57,7 @@ class ProductController extends Controller
             'img_path' => $imgPath,
         ]);
 
-        return redirect()->route('products.index');
+        return redirect()->route('mypage.sale_item', ['id' => $product->id]);
     }
 
     public function destroy($id)
@@ -68,8 +68,8 @@ class ProductController extends Controller
         //削除処理
         $product->delete();
 
-    //一覧へ戻る
-    return redirect()->route('products.index');
+    //マイページへ戻る
+    return redirect()->route('mypage.index');
     }
 
     public function buy($id)

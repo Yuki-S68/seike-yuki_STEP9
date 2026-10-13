@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Product;
 use App\Models\Sale;
+use App\Http\Requests\ProductRequest;
 
 class MypageController extends Controller
 {
@@ -32,7 +33,7 @@ class MypageController extends Controller
         $product = Product::where('id', $id)
                           ->where('user_id', auth()->id())
                           ->firstOrFail();
-        //sale_item.blade.phpｗｐ表示
+        //sale_item.blade.phpを表示
         return view('mypage.sale_item', compact('product'));
     }
 
