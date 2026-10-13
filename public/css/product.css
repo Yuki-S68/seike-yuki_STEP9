@@ -127,10 +127,11 @@
 /* 詳細ページのボタン */
 .product-detail__actions {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
+    align-items: center;
     gap: 15px;
-    margin-top: calc;
-    padding-left: 420px;
+    margin-top: 20px;
+    padding-left: 0;
 }
 
 .product-detail__actions form {
@@ -140,13 +141,16 @@
 }
 
 .product-detail__button {
-    display: inline-block;
-    padding: 10px 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 14px;
     background-color: #007bff;
     color: #fff;
     text-decoration: none;
     border-radius: 6px;
-    font-weight: bold;
+    font-size: 14px;
+    font-weight: 600;
     transition: background-color 0.2s;
     border: none;
     cursor: pointer;
@@ -163,6 +167,34 @@
 
 .product-detail__button--back {
     background-color: #6c757d;
+}
+
+.product-detail__button--back:hover {
+    background-color: #5a6268;
+}
+
+/* 編集ボタン（青） */
+.product-detail__button--edit {
+    background-color: #007bff;
+}
+
+.product-detail__button--edit:hover {
+    background-color: #0056b3;
+}
+
+/* 削除ボタン（赤） */
+.product-detail__button--delete {
+    background-color: #dc3545;
+}
+
+.product-detail__button--delete:hover {
+    background-color: #b02a37;
+}
+
+/* 戻るボタン（濃いグレー） */
+.product-detail__button--back {
+    background-color: #6c757d;
+    color: #fff;
 }
 
 .product-detail__button--back:hover {
@@ -362,9 +394,8 @@
     margin-top: 30px;
 }
 
-/* ボタン共通 */
-.product-detail-edit__button,
-.product-detail-create__button {
+/* マイページ：ボタン共通 */
+.product-button {
     display: inline-block;
     padding: 10px 24px;
     font-size: 16px;
@@ -375,27 +406,34 @@
     transition: background-color 0.2s ease;
 }
 
-/* 戻るボタン */
-.product-detail-edit__button--back,
-.product-detail-create__button--back {
-    background: #6c757d;
-    color: #fff;
-}
-
-.product-detail-edit__button--back:hover,
-.product-detail-create__button--back:hover {
-    background: #5a6268;
-}
-
-
-/* 登録ボタン */
-.product-detail-edit__button--primary,
-.product-detail-create__button--primary {
+/* マイページ：登録・編集ボタン */
+.product-button--primary,
+.product-button--edit {
     background: #007bff;
     color: #fff;
 }
 
-.product-detail-edit__button--primary:hover,
-.product-detail-create__button--primary:hover {
+.product-button--primary:hover,
+.product-button--edit:hover {
     background: #0056b3;
+}
+
+/* マイページ：削除ボタン */
+.product-button--delete {
+    background-color: #dc3545;
+    color: #fff;
+}
+.product-button--delete:hover {
+    background-color: #b02a37;
+}
+
+
+/*マイページ：戻るボタン */
+.product-button--back {
+    background: #6c757d;
+    color: #fff;
+}
+
+.product-button--back:hover {
+    background: #5a6268;
 }

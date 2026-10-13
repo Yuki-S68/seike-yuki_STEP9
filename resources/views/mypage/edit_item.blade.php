@@ -51,9 +51,9 @@
         <div class="product-edit__actions">
             <button type="button"
                     onclick="location.href='{{ route('mypage.sale_item', ['id' => $product->id]) }}'"
-                    class="product-edit__button product-edit__button--back">戻る</button>
+                    class="product-button product-button--back">戻る</button>
             <button type="submit"
-                    class="product-edit__button product-edit__button--primary">更新</button>
+                    class="product-button product-button--primary">更新</button>
         </div>
     </form>
 </div>

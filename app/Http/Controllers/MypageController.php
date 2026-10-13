@@ -41,4 +41,31 @@ class MypageController extends Controller
         $product = Product::findOrFail($id);
         return view('mypage.edit_item', compact('product'));
     }
+
+    public function createItem()
+    {
+        return view('mypage.create_item');
+    }
+
+    public function storeItem(ProductRequest $request)
+    {
+        $imgPath = '';
+
+        if ($request->hasFile('image')) {
+            $imgPath = $request->file('image')->store('images', 'public');
+        }
+
+        //商品登録
+        Product::create([
+            'name' => $request->name,
+            'price' => $request->price,
+            'description' => $request->description,
+            'stock' => $request->stock,
+            'user_id' => Auth::id(),
+            'company_id' => 1,
+            'img_path' => $imgPath,
+        ]);
+
+        return redirect()->route('mypage.index');
+    }
 }

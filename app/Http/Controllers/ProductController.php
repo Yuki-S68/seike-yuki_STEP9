@@ -21,36 +21,6 @@ class ProductController extends Controller
         return view('products.index', compact('products'));
     }
 
-    public function create()
-    {
-        return view('products.create');
-    }
-
-    public function store(ProductRequest $request)
-    {
-
-        //画像ファイルの処理
-        $imgPath = '';
-
-        if ($request->hasFile('image')) {
-            $imgPath = $request->file('image')->store('images', 'public');
-        }
-
-        //商品登録
-        Product::create([
-            'name' => $request->name,
-            'price' => $request->price,
-            'description' => $request->description,
-            'stock' => $request->stock,
-            'user_id' => 1,
-            'company_id' => 1,
-            'img_path' => $imgPath,
-        ]);
-
-        //商品一覧へのリダイレクト
-        return redirect()->route('products.index');
-    }
-
     public function show($id)
     {
         //１件のデータを取得

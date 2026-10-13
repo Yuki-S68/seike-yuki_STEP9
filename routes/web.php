@@ -45,3 +45,11 @@ Route::get('/contact', [ContactController::class, 'showForm'])->name('contact');
 
 Route::post('/products/{product}/favorite', [FavoriteController::class, 'addFavorite'])->name('favorite.add');
 Route::delete('/products/{product}/favorite', [FavoriteController::class, 'removeFavorite'])->name('favorite.remove');
+
+Route::get('/mypage/products/create', [MypageController::class, 'createItem'])
+    ->middleware('auth')
+    ->name('mypage.create_item');
+
+Route::post('/mypage/products/store', [MypageController::class, 'storeItem'])
+    ->middleware('auth')
+    ->name('mypage.store_item');

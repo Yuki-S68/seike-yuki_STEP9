@@ -7,7 +7,7 @@
     <h1 class="product-create__title">商品登録</h1>
 
     <form class="product-create__form"
-          action="{{ route('products.store') }}"
+          action="{{ route('mypage.store_item') }}"
           method="POST"
           enctype="multipart/form-data">
         @csrf
@@ -38,13 +38,15 @@
         </div>
 
         <div class="product-create__actions">
-            <a href="{{ route('mypage.index') }}"
-               class="product-detail-create__button product-detail-create__button--back">
+            <button type="button"
+                    onclick="location.href='{{ route('mypage.index') }}'"
+                    class="product-button product-button--back">
                 戻る
-            </a>
+            </button>
+
 
             <button type="submit"
-                    class="product-detail-create__button product-detail-create__button--primary">
+                    class="product-button product-button--primary">
                 登録
             </button>
         </div>

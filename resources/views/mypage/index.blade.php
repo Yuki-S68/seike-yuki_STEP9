@@ -22,7 +22,7 @@
     <h2 class="mypage__subtitle">＜出品商品＞</h2>
 
     <div class="mypage__create-wrap">
-        <a href="{{ route('products.create') }}" class="mypage__button mypage__button--create">新規登録</a>
+        <a href="{{ route('mypage.create_item') }}" class="mypage__button mypage__button--create">新規登録</a>
     </div>
 
     <table class="mypage__table">
@@ -43,7 +43,7 @@
                 <td>{{ $product->description }}</td>
                 <td>{{ number_format($product->price) }}</td>
                 <td>
-                    <a href="{{ route('products.show', $product->id) }}" class="mypage__button mypage__button--detail">詳細</a>
+                    <a href="{{ route('mypage.sale_item', $product->id) }}" class="mypage__button mypage__button--detail">詳細</a>
                 </td>
             </tr>
             @endforeach

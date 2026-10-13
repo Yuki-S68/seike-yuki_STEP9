@@ -55,7 +55,7 @@
 /* ボタン共通 */
 .mypage__button {
     display: inline-block;
-    padding: 10px 20px;
+    padding: 6px 14px;
     border-radius: 8px;
     font-size: 15px;
     font-weight: bold;
@@ -77,6 +77,15 @@
 .mypage__button--edit:hover {
     background-color: #0056b3 !important;
 }
+
+.mypage__button--delete {
+    background-color: #dc3545 !important;
+}
+
+.mypage__button--delete:hover {
+    background-color: #b02a37 !important;
+}
+
 
 /* テーブル */
 .mypage__table {

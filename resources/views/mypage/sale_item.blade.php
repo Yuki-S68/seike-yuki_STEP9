@@ -24,19 +24,19 @@
 
     <div class="product-detail__actions">
         <button onclick="location.href='{{ route('mypage.edit_item', $product->id) }}'"
-                class="product-detail__button product-detail__button--edit">編集</button>
+                class="product-button product-button--edit">編集</button>
 
         <form action="{{ route('products.destroy', $product->id) }}"
               method="POST"
               onsubmit="return confirm('削除してもよろしいですか？');">
             @csrf
             @method('DELETE')
-            <button type="submit" class="product-detail__button product-detail__button--delete">削除する</button>
+            <button type="submit" class="product-button product-button--delete">削除する</button>
         </form>
 
         <button
-            onclick="location.href='{{ route('products.index') }}'"
-            class="product-detail__button product-detail__button--back">戻る</button>
+            onclick="location.href='{{ route('mypage.index') }}'"
+            class="product-button product-button--back">戻る</button>
     </div>
 </div>
 @endsection
