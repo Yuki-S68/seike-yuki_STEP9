@@ -53,7 +53,7 @@
 
     <footer class="layout__footer">
         <div class="footer__inner">
-            <a href="{{ route('contact') }}" class="footer__contact-button">お問い合わせ</a>
+            <a href="{{ route('emails.form') }}" class="footer__contact-button">お問い合わせ</a>
 
             <div class="footer__nav">
                 <a href="{{ route('products.index') }}" class="footer__link">Home</a>

@@ -37,11 +37,8 @@ Route::get('/mypage/products/{id}/edit', [MypageController::class, 'editItem'])
 Route::get('/account/edit', [AccountController::class, 'edit'])->name('account.edit');
 Route::post('/account/update', [AccountController::class, 'update'])->name('account.update');
 
-Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
-Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
-Route::get('/contact/thanks', [ContactController::class, 'thanks'])->name('contact.thanks');
-
-Route::get('/contact', [ContactController::class, 'showForm'])->name('contact');
+Route::get('/emails', [ContactController::class, 'showForm'])->name('emails.form');
+Route::post('/emails', [ContactController::class, 'submitForm'])->name('emails.submit');
 
 Route::post('/products/{product}/favorite', [FavoriteController::class, 'addFavorite'])->name('favorite.add');
 Route::delete('/products/{product}/favorite', [FavoriteController::class, 'removeFavorite'])->name('favorite.remove');

@@ -15,7 +15,7 @@
             </ul>
         @endif
 
-        <form action="{{ route('contact.submit') }}" method="POST" class="contact__form">
+        <form action="{{ route('emails.submit') }}" method="POST" class="contact__form">
             @csrf
 
             <div class="contact__group">
