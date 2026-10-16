@@ -1,14 +1,19 @@
-/* 全体 */
-body {
+/* =========================================================
+   全体設定
+   ========================================================= */
+   body {
     font-family: 'Noto Sans JP', sans-serif;
     background: #fafafa;
     margin: 0;
     padding: 0;
 }
 
-/* ヘッダー */
+
+/* =========================================================
+   ヘッダー
+   ========================================================= */
 .layout__header {
-    width:100%;
+    width: 100%;
     background-color: #fff;
     color: #333;
     padding: 15px 40px;
@@ -25,7 +30,7 @@ body {
 .layout__header-left {
     display: flex;
     flex-direction: row;
-    align-items:center;
+    align-items: center;
     gap: 5px;
 }
 
@@ -35,13 +40,10 @@ body {
     color: #333;
 }
 
-.layout__main {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    min-height: auto;
-}
 
+/* =========================================================
+   ナビゲーション
+   ========================================================= */
 .layout__nav {
     display: flex;
     align-items: center;
@@ -50,7 +52,7 @@ body {
 }
 
 .layout__nav-link {
-    color:#007bff;
+    color: #007bff;
     text-decoration: none;
     font-weight: 500;
 }
@@ -64,12 +66,14 @@ body {
     color: #555;
 }
 
-/* ログアウトボタン */
+
+/* =========================================================
+   ログアウトボタン
+   ========================================================= */
 .layout__logout-button {
     padding: 6px 12px;
     border-radius: 6px;
     border: none;
-    border-radius: 6px;
     background-color: #dc3545;
     color: #fff;
     font-weight: 500;
@@ -80,12 +84,22 @@ body {
     background-color: #c82333;
 }
 
-/* メインコンテンツ */
+
+/* =========================================================
+   メインコンテンツ
+   ========================================================= */
+.layout__main {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: auto;
+}
+
 .layout__fluid {
     width: 100vw;
     max-width: none;
     margin: 0;
-    padding:0 80px;
+    padding: 0 80px;
     justify-content: center;
     align-items: center;
     min-height: auto;
@@ -100,20 +114,9 @@ body {
 }
 
 
-/* フッター */
-.layout__footer {
-    background-color: #fafafa;
-    color: #333;
-    padding: 20px 0;
-    text-align: center;
-    margin-top: 40px;
-}
-
-.layout__footer-text {
-    font-size: 14px;
-    color: #666;
-}
-
+/* =========================================================
+   フッター
+   ========================================================= */
 .layout__footer {
     background-color: #fff;
     text-align: center;
@@ -157,4 +160,3 @@ body {
     color: #666;
     font-size: 14px;
 }
-

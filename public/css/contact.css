@@ -1,4 +1,7 @@
-.contact {
+/* =========================================================
+   お問い合わせページ
+   ========================================================= */
+   .contact {
     padding: 40px 0;
 }
 
@@ -14,6 +17,10 @@
     text-align: left;
 }
 
+
+/* =========================================================
+   入力フォーム
+   ========================================================= */
 .contact__group {
     margin-bottom: 20px;
 }
@@ -37,9 +44,13 @@
     height: 150px;
 }
 
+
+/* =========================================================
+   ボタン（送信・戻る）
+   ========================================================= */
 .contact__buttons {
     display: flex;
-    justify-content: flex-starat;
+    justify-content: flex-start;
     gap: 10px;
     margin-top: 30px;
 }
@@ -48,12 +59,12 @@
     padding: 10px 20px;
     border-radius: 4px;
     text-decoration: none;
-    color:#fff;
+    color: #fff;
 }
 
 .contact__button--submit {
     background-color: #0d6efd;
-    color:#fff;
+    color: #fff;
     border: none;
     outline: none;
 }

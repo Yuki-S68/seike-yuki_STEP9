@@ -26,8 +26,6 @@ Route::get('/mypage', [MypageController::class, 'index'])
     ->middleware('auth')
     ->name('mypage.index');
 
-Route::get('/account/edit', [AccountController::class, 'edit'])->name('account.edit');
-
 Route::get('/mypage/sale_item/{id}', [MypageController::class, 'showSaleItem'])
      ->name('mypage.sale_item');
 

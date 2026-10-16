@@ -20,10 +20,10 @@ class ContactRequest extends FormRequest
         ];
     }
 
-    public function message()
+    public function messages()
     {
         return [
-            'name.requred' => '名前は必須です。',
+            'name.required' => '名前は必須です。',
             'name.max' => '名前は255文字以内で入力してください。',
             'email.required' => 'メールアドレスは必須です。',
             'email.max' => 'メールアドレスは255文字以内で入力してください。',

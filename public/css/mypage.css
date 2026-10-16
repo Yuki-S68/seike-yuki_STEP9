@@ -1,6 +1,6 @@
-/* ================================
+/* =========================================================
    マイページ
-================================ */
+   ========================================================= */
 
 /* 全体 */
 .mypage {
@@ -44,6 +44,7 @@
     margin-top: 60px;
 }
 
+/* 新規登録ボタン*/
 .mypage__create-wrap {
     text-align: right;
     margin-bottom: 10px;
@@ -70,11 +71,10 @@
     color: #fff !important;
 }
 
-/* 新規登録、編集ボタン */
+/* 新規登録・編集ボタン */
 .mypage__button--create,
 .mypage__button--edit {
     background-color: #007bff !important;
-    
 }
 
 .mypage__button--create:hover,
@@ -82,6 +82,7 @@
     background-color: #0056b3 !important;
 }
 
+/* 削除ボタン */
 .mypage__button--delete {
     background-color: #dc3545 !important;
 }
@@ -90,6 +91,15 @@
     background-color: #b02a37 !important;
 }
 
+/* 詳細ボタン */
+.mypage__button--detail {
+    background-color: #28a745 !important;
+    color: #fff !important;
+}
+
+.mypage__button--detail:hover {
+    background-color: #218838 !important;
+}
 
 /* テーブル */
 .mypage__table {
@@ -111,19 +121,10 @@
     font-weight: 500;
 }
 
-/* 詳細ボタン */
-.mypage__button--detail {
-    background-color: #28a745 !important;
-    color: #fff !important;
-}
 
-.mypage__button--detail:hover {
-    background-color: #218838 !important;
-}
-
-/* ================================
+/* =========================================================
    アカウント編集ページ
-================================ */
+   ========================================================= */
 
 /* 全体レイアウト */
 .account-edit {
@@ -181,7 +182,7 @@
     transition: background-color 0.2s ease;
 }
 
-/* 戻るボタン（グレー） */
+/* 戻るボタン*/
 .account-edit__button--back {
     background-color: #6c757d;
 }
@@ -190,7 +191,7 @@
     background-color: #5a6268;
 }
 
-/* 更新ボタン（青） */
+/* 更新ボタン */
 .account-edit__button--primary {
     background-color: #007bff;
 }

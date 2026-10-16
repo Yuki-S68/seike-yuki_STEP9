@@ -51,10 +51,10 @@
 
         <div class="product-edit__actions">
             <a href="{{ route('products.show', $product->id) }}"
-               class="product-detail-edit__button product-detail-edit__button--back">戻る</a>
+               class="product-button product-button--back">戻る</a>
 
                <button type="submit"
-                    class="product-detail-edit__button product-detail-edit__button--primary">更新</button>
+                    class="product-button product-button--primary">更新</button>
 
         </div>
     </form>

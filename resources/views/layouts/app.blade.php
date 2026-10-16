@@ -61,6 +61,7 @@
             </div>
 
             <p class="footer__copy">&copy; 2024 Company, Inc</p>
+        </div>
     </footer>
 
 </body>
