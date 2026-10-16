@@ -18,8 +18,8 @@ return new class extends Migration
             $table->unsignedBigInteger('company_id'); // 会社ID(FK: companies.id)
 
             $table->string('name', 255); //商品名
-            $table->Integer('price'); //価格
-            $table->Integer('stock'); //在庫数
+            $table->integer('price'); //価格
+            $table->integer('stock'); //在庫数
             $table->string('description', 255); //説明
             $table->string('img_path', 255); //画像
 

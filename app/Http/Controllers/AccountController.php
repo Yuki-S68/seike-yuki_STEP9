@@ -19,7 +19,7 @@ class AccountController extends Controller
         $user = Auth::user();
 
         $user->update([
-            'name'      => $request->name,
+            'name'      => $request->username,
             'email'     => $request->email,
             'name_kanji'=> $request->name,
             'name_kana' => $request->kana,

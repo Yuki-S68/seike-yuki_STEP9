@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('email', 255); //メールアドレス
             $table->string('password', 255); //パスワード
 
-            $table->unsignedbigInteger('company_id')->nullable(); //会社ID（外部キー）
+            $table->unsignedBigInteger('company_id')->nullable(); //会社ID（外部キー）
 
             $table->foreign('company_id')
                   ->references('id')
