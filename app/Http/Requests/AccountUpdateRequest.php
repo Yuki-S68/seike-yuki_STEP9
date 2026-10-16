@@ -17,7 +17,7 @@ class AccountUpdateRequest extends FormRequest
             'username' => 'required|string|max:255',
             'email'    => 'required|email|max:255',
             'name'     => 'required|string|max:255',
-            'kana'     => 'required|string|max:255',
+            'kana'     => 'nullable|string|max:255',
         ];
     }
 
@@ -25,9 +25,18 @@ class AccountUpdateRequest extends FormRequest
     {
         return [
             'username.required' => 'ユーザ名は必須です。',
+            'username.max'      => 'ユーザー名は255文字以内で入力してください。',
+
             'email.required'    => 'メールアドレスは必須です。',
+            'email.email'       => 'メールアドレスの形式が正しくありません。',
+            'email.max'         => 'メールアドレスは255文字以内で入力してください。',
+
             'name.required'     => '名前は必須です。',
-            'kana.required'     => 'カナは必須です。',
+            'name.string'       => '名前は文字列で入力してください。',
+            'name.max'          => '名前は255文字以内で入力してください。',
+
+            'kana.string'       => 'カナは文字列で入力してください。',
+            'kana.max'          => 'カナは255文字以内で入力してください。',
         ];
     }
 }

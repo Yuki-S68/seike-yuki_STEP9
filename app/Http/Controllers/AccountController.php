@@ -21,10 +21,10 @@ class AccountController extends Controller
         $user->update([
             'name'      => $request->name,
             'email'     => $request->email,
-            'name_kanji'=> $request->name_kanji,
-            'name_kana' => $request->name_kana,
+            'name_kanji'=> $request->name,
+            'name_kana' => $request->kana,
         ]);
 
-        return redirect()->route('account.edit')->with('success', 'アカウント情報を更新しました！');
+        return redirect()->route('mypage.index')->with('success', 'アカウント情報を更新しました！');
     }
 }
