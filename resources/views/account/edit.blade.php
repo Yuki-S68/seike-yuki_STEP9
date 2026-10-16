@@ -12,7 +12,7 @@
         @csrf
         <div class="account-edit__group">
             <label for="username" class="account-edit__label">ユーザー名</label>
-            <input type="text" id="username" class="account-edit__input" name="username" value="{{ old('username', $user->username) }}">
+            <input type="text" id="username" class="account-edit__input" name="username" value="{{ old('username', $user->name) }}">
         </div>
 
         <div class="account-edit__group">
@@ -22,12 +22,12 @@
 
         <div class="account-edit__group">
             <label for="name" class="account-edit__label">名前</label>
-            <input type="text" id="name" class="account-edit__input" name="name" value="{{ old('name', $user->name) }}">
+            <input type="text" id="name" class="account-edit__input" name="name" value="{{ old('name', $user->name_kanji) }}">
         </div>
 
         <div class="account-edit__group">
             <label for="kana" class="account-edit__label">カナ</label>
-            <input type="text" id="kana" class="account-edit__input" name="kana" value="{{ old('kana', $user->kana) }}">
+            <input type="text" id="kana" class="account-edit__input" name="kana" value="{{ old('kana', $user->name_kana) }}">
         </div>
 
         <div class="account-edit__actions">

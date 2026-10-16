@@ -1,4 +1,8 @@
-/* マイページ全体 */
+/* ================================
+   マイページ
+================================ */
+
+/* 全体 */
 .mypage {
     width: 90%;
     max-width: 1300px;
@@ -115,4 +119,82 @@
 
 .mypage__button--detail:hover {
     background-color: #218838 !important;
+}
+
+/* ================================
+   アカウント編集ページ
+================================ */
+
+/* 全体レイアウト */
+.account-edit {
+    width: 90%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 40px 0;
+    font-family: "Helvetica", "Arial", sans-serif;
+    color: #333;
+}
+
+/* タイトル */
+.account-edit__title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+/* 入力グループ */
+.account-edit__group {
+    margin-bottom: 20px;
+}
+
+.account-edit__label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.account-edit__input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+/* ボタンエリア */
+.account-edit__actions {
+    display: flex;
+    justify-content: flex-start;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+/* ボタン共通 */
+.account-edit__button {
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    color: #fff;
+    transition: background-color 0.2s ease;
+}
+
+/* 戻るボタン（グレー） */
+.account-edit__button--back {
+    background-color: #6c757d;
+}
+
+.account-edit__button--back:hover {
+    background-color: #5a6268;
+}
+
+/* 更新ボタン（青） */
+.account-edit__button--primary {
+    background-color: #007bff;
+}
+
+.account-edit__button--primary:hover {
+    background-color: #0056b3;
 }

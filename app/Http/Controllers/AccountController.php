@@ -19,10 +19,10 @@ class AccountController extends Controller
         $user = Auth::user();
 
         $user->update([
-            'username' => $request->username,
-            'email'    => $request->email,
-            'name'     => $request->name,
-            'kana'     => $request->kana,
+            'name'      => $request->name,
+            'email'     => $request->email,
+            'name_kanji'=> $request->name_kanji,
+            'name_kana' => $request->name_kana,
         ]);
 
         return redirect()->route('account.edit')->with('success', 'アカウント情報を更新しました！');
