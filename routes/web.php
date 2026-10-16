@@ -11,6 +11,10 @@ Route::get('/', function () {
     return redirect('/login');
 });
 
+Route::get('/login', function () {
+    return view('auth.login');
+});
+
 Auth::routes();
 
 Route::get('/home', function () {
@@ -48,3 +52,5 @@ Route::get('/mypage/products/create', [MypageController::class, 'createItem'])
 Route::post('/mypage/products/store', [MypageController::class, 'storeItem'])
     ->middleware('auth')
     ->name('mypage.store_item');
+
+    

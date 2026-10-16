@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Http\Requests\ProductRequest;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\BuyRequest;
+use App\Models\Sale;
+use Illuminate\Support\Facades\DB;
+
 
 
 class ProductController extends Controller
@@ -68,8 +72,8 @@ class ProductController extends Controller
         //削除処理
         $product->delete();
 
-    //マイページへ戻る
-    return redirect()->route('mypage.index');
+        //マイページへ戻る
+        return redirect()->route('mypage.index');
     }
 
     public function buy($id)
@@ -94,5 +98,45 @@ class ProductController extends Controller
         $product->save();
 
         return redirect()->route('products.index')->with('success', '購入が完了しました！');
-            }
+    }
+
+    public function purchase(BuyRequest $request)
+    {
+        //商品取得
+        $product = Product::findOrFail($request->product_id);
+
+        //在庫チェック
+        if ($product->stock < $request->quantity) {
+            return response()->json([
+                'message' => '在庫が不足しています。',
+            ], 400);
+        }
+
+        DB::beginTransaction();
+        try {
+            // 購入履歴を作成
+            $sale = Sale::create([
+                'user_id' => Auth::id(),
+                'product_id' => $product->id,
+                'quantity' => $request->quantity,
+            ]);
+
+            // 在庫を減らす
+            $product->decrement('stock', $request->quantity);
+
+            DB::commit();
+
+            return response()->json([
+                'message' => '購入が完了しました。',
+                'order' => $sale,
+            ], 201);
+
+        } catch (\Exception $e) {
+            DB::rollBack();
+
+            return response()->json([
+                'message' => '購入処理に失敗しました。',
+            ], 500);
+        }
+    }
 }
