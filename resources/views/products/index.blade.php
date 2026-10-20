@@ -17,6 +17,7 @@
     <form  class="product-list__search-form" method="GET" action="{{ route('products.index') }}">
         <input type="text" name="keyword" placeholder="商品名を入力" class="product-list__input">
         <input type="number" name="min_price" placeholder="最低価格" class="product-list__input">
+        <span class="price-range">～</span>
         <input type="number" name="max_price" placeholder="最高価格" class="product-list__input">
         <button type="submit" class="product-list__button product-list__button--search">検索</button>
     </form>

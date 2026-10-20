@@ -11,7 +11,7 @@
     <form action="{{ route('account.update') }}" method="POST" class="account-edit__form">
         @csrf
         <div class="account-edit__group">
-            <label for="username" class="account-edit__label">ユーザー名</label>
+            <label for="username" class="account-edit__label">ユーザ名</label>
             <input type="text" id="username" class="account-edit__input" name="username" value="{{ old('username', $user->name) }}">
         </div>
 

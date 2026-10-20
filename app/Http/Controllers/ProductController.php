@@ -14,10 +14,27 @@ use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        $query = Product::query();
+
+        // 商品名検索
+        if ($request->filled('keyword')) {
+            $query->where('name', 'like', '%' . $request->keyword . '%');
+        }
+
+        // 最低価格
+        if ($request->filled('min_price')) {
+            $query->where('price', '>=', $request->min_price);
+        }
+
+        // 最高価格
+        if ($request->filled('max_price')) {
+            $query->where('price', '<=', $request->max_price);
+        }
+
         // ログインしているユーザー以外の商品を取得
-        $products = Product::where('user_id', '!=', Auth::id())
+        $products = $query->where('user_id', '!=', Auth::id())
                             ->orderBy('id', 'asc')
                             ->get();
 

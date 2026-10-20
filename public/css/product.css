@@ -23,6 +23,7 @@
 
 .product-list__search-form {
     display: flex;
+    justify-content: center;
     align-items: center;
     gap: 10px;
     margin-bottom: 20px;
@@ -62,6 +63,11 @@
     background: #fff8db;
     border-left: 6px solid #f1c40f;
     color: #7a5e00;
+}
+
+.price-range {
+    margin: 0 8px;
+    font-weight: bold;
 }
 
 
