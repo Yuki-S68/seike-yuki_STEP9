@@ -97,6 +97,13 @@ class ProductController extends Controller
         $product->stock -= $request->quantity;
         $product->save();
 
+        // 購入履歴を作成
+        Sale::create([
+            'user_id' => Auth::id(),
+            'product_id' => $product->id,
+            'quantity' => $request->quantity,
+        ]);
+
         return redirect()->route('products.index')->with('success', '購入が完了しました！');
     }
 

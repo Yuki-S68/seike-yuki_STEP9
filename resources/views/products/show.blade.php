@@ -33,10 +33,6 @@
                         @if ($product->favoritedBy(Auth::user())) style="color: red;" @endif>
                         <i class="fas fa-heart"></i>
                 </button>
-
-                <span id="favorite-count" class="product-detail__favorite-count">
-                    {{ $product->favorites()->count() }}
-                </span>
             </div>
         </div>
 

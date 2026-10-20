@@ -38,4 +38,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Favorite::class);
     }
+
+    // 購入履歴とのリレーション
+    public function sales()
+    {
+        return $this->hasMany(Sale::class);
+    }
 }
