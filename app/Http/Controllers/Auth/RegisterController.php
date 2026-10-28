@@ -13,7 +13,7 @@ class RegisterController extends Controller
 {
     use RegistersUsers;
 
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/index';
 
     public function __construct()
     {
@@ -41,15 +41,4 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
     }
-
-    /**
-     * 登録後のリダイレクト先をログイン画面へ
-     */
-    protected function registered($request, $user)
-    {
-        Auth::logout();
-
-        return redirect('/login')->with('success', '登録が完了しました。ログインしてください。');
-    }
-
 }

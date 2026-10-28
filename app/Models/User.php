@@ -34,9 +34,9 @@ class User extends Authenticatable
     }
 
     // お気に入りとのリレーション
-    public function favorites()
+    public function likes()
     {
-        return $this->hasMany(Favorite::class);
+        return $this->hasMany(Like::class);
     }
 
     // 購入履歴とのリレーション

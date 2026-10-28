@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Favorite;
+use App\Models\Like;
 use App\Models\Company;
 use App\Models\User;
 
@@ -20,6 +20,18 @@ class Product extends Model
         'img_path',
     ];
 
+    //　ユーザとのリレーションを定義
+        public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    // ログインしているユーザー以外の商品を取得
+    public function getOtherProducts($user_id)
+    {
+        return $this->where('user_id', '!=', $user_id)->get();
+    }
+
     // 商品は1つの会社に属する
     public function company()
     {
@@ -27,19 +39,19 @@ class Product extends Model
     }
 
     // 商品は複数のお気に入りを持つ(1対多)
-    public function favorites()
+    public function likes()
     {
-        return $this->hasMany(Favorite::class);
+        return $this->hasMany(Like::class);
     }
 
     // 特定のユーザーがこの商品をお気に入り登録しているか確認
-    public function favoritedBy($user)
+    public function likedBy($user)
     {
         if (!$user) {
             return false;
         }
 
-        return $this->favorites()->where('user_id', $user->id)->exists();
+        return $this->likes()->where('user_id', $user->id)->exists();
     }
 
 }

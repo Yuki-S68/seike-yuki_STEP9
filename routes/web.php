@@ -5,7 +5,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\MypageController;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\ContactController;
-use App\Http\Controllers\FavoriteController;
+use App\Http\Controllers\LikeController;
 
 Route::get('/', function () {
     return redirect('/login');
@@ -17,9 +17,9 @@ Route::get('/login', function () {
 
 Auth::routes();
 
-Route::get('/home', function () {
-    return redirect('/products');
-});
+Route::get('/index', [ProductController::class, 'index'])
+    ->middleware('auth')
+    ->name('index');
 
 Route::get('/products/{id}/buy', [ProductController::class, 'buy'])->name('products.buy');
 Route::post('/products/{id}/buy', [ProductController::class, 'buyComplete'])->name('products.buyComplete');
@@ -42,8 +42,8 @@ Route::post('/account/update', [AccountController::class, 'update'])->name('acco
 Route::get('/emails', [ContactController::class, 'showForm'])->name('emails.form');
 Route::post('/emails', [ContactController::class, 'submitForm'])->name('emails.submit');
 
-Route::post('/products/{product}/favorite', [FavoriteController::class, 'addFavorite'])->name('favorite.add');
-Route::delete('/products/{product}/favorite', [FavoriteController::class, 'removeFavorite'])->name('favorite.remove');
+Route::post('/products/{product}/like', [LikeController::class, 'likeProduct']);
+Route::delete('/products/{product}/like', [LikeController::class, 'unlikeProduct']);
 
 Route::get('/mypage/products/create', [MypageController::class, 'createItem'])
     ->middleware('auth')

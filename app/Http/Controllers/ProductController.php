@@ -33,13 +33,13 @@ class ProductController extends Controller
             $query->where('price', '<=', $request->max_price);
         }
 
-        // ログインしているユーザー以外の商品を取得
-        $products = $query->where('user_id', '!=', Auth::id())
-                            ->orderBy('id', 'asc')
-                            ->get();
+        // 自分以外の商品
+        $query->where('user_id', '!=', Auth::id());
 
-        // Bladeに渡す
+        $products = $query->orderBy('id', 'asc')->get();
+
         return view('products.index', compact('products'));
+
     }
 
     public function show($id)

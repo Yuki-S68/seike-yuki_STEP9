@@ -37,11 +37,21 @@
                 <nav class="layout__nav">
                     <a href="{{ route('products.index') }}" class="layout__nav-link">Home</a>
                     <a href="{{ route('mypage.index') }}" class="layout__nav-link">マイページ</a>
-                    <span class="layout__user">ログインユーザー：{{ auth()->user()->name ?? 'ゲスト' }}</span>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="layout__logout-form">
-                        @csrf
-                        <button type="submit" class="layout__logout-button">ログアウト</button>
-                    </form>
+
+                    <div class="layout__user">
+                        ログインユーザー：{{ auth()->user()->name ?? 'ゲスト' }}
+                    </div>
+
+                    <div class="layout__logout">
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="layout__logout-form">
+                            @csrf
+                        </form>
+
+                        <a class="layout__logout-button" href="{{ route('logout') }}"
+                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            ログアウト
+                        </a>
+                    </div>
                 </nav>
             </div>
         </header>
@@ -63,6 +73,7 @@
             <p class="footer__copy">&copy; 2024 Company, Inc</p>
         </div>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>

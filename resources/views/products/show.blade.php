@@ -5,7 +5,7 @@
 @section('content')
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-<script src="{{ asset('js/favorite.js') }}"></script>
+<script src="{{ asset('js/like.js') }}"></script>
 
 <main class="layout__main">
     <div class="product-detail">
@@ -26,13 +26,14 @@
             <p class="product-detail__text"><strong>金額：</strong> ￥{{ number_format($product->price) }}</p>
             <p class="product-detail__text"><strong>会社：</strong> {{ $product->company->company_name }}</p>
 
-            <div class="product-detail__favorite">
-                <button id="favorite-btn"
-                        class="product-detail__favorite-button"
+            <div class="product-detail__like">
+                <button id="like-btn"
+                        class="product-detail__like-button"
                         data-product-id="{{ $product->id }}"
-                        @if ($product->favoritedBy(Auth::user())) style="color: red;" @endif>
-                        <i class="fas fa-heart"></i>
+                        @if ($product->likedBy(Auth::user())) style="color: red;" @endif>
+                    <i class="fas fa-heart"></i>
                 </button>
+                <span id="like-count">{{ $product->likes()->count() }}</span>
             </div>
         </div>
 

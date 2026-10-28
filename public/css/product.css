@@ -112,25 +112,33 @@
     margin: 0;
 }
 
-.product-detail__favorite {
+.product-detail__like {
     margin-top: 10px;
 }
 
-.product-detail__favorite-button {
+.product-detail__like-button {
     background: none;
     border: none;
     font-size: 28px;
-    color: transparent;
-    -webkit-text-stroke: 1.5px #000;
     cursor: pointer;
-    transition: all 0.2s ease;
-    margin-bottom: 30px;
 }
 
-.product-detail__favorite-button.active {
+
+.product-detail__like-button.active {
     color: red;
     -webkit-text-stroke: 0;
 }
+
+.product-detail__like-button i {
+    color: white;
+    -webkit-text-stroke: 1.5px #000;
+}
+
+.product-detail__like-button i.active {
+    color: red;
+    -webkit-text-stroke: 0;
+}
+
 
 .product-detail__error {
     color: red;

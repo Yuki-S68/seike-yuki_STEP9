@@ -45,7 +45,7 @@
                      class="product-edit__image">
             @endif
 
-            <input type="file" name="img_path" id="img_path" class="product-edit__file">
+            <input type="file" name="image" id="image" class="product-edit__file">
         </div>
 
         <div class="product-edit__actions">
