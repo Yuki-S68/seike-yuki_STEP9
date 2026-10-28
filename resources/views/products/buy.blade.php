@@ -44,7 +44,8 @@
                 </div>
 
                 <div class="product-detail__actions">
-                    <button type="submit"
+                    <button type="Button"
+                            id="buyBtn"
                             class="product-button product-button--primary">
                         購入する
                     </button>
@@ -55,6 +56,23 @@
                     </a>
                 </div>
             </form>
+
+            <div id="purchaseModal" class="modal" style="display:none;">
+            <div class="modal__content">
+                <p>この商品を購入しますか？</p>
+
+                <form action="{{ route('products.buyComplete', $product->id) }}" method="POST">
+                    @csrf
+
+                    <input type="hidden" id="modalQuantity" name="quantity">
+                    
+                    <button type="submit" class="modal__yes">はい</button>
+                    <button type="button" id="modalCancel" class="modal__cancel">キャンセル</button>
+                </form>
+            </div>
+        </div>
     </div>
 </main>
+<script src="{{ asset('js/purchase.js') }}"></script>
+
 @endsection

@@ -21,7 +21,9 @@ Route::get('/index', [ProductController::class, 'index'])
     ->middleware('auth')
     ->name('index');
 
-Route::get('/products/{id}/buy', [ProductController::class, 'buy'])->name('products.buy');
+Route::get('/products/{id}/buy', [ProductController::class, 'buy'])
+     ->middleware('auth')
+     ->name('products.buy');
 Route::post('/products/{id}/buy', [ProductController::class, 'buyComplete'])->name('products.buyComplete');
 
 Route::resource('products', ProductController::class);
