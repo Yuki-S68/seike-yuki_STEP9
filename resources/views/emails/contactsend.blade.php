@@ -15,6 +15,14 @@
             </ul>
         @endif
 
+        {{-- メール送信エラー --}}
+        @if (session('error'))
+            <div class="contact__error">
+                {{ session('error') }}
+            </div>
+        @endif
+
+
         <form action="{{ route('emails.submit') }}" method="POST" class="contact__form">
             @csrf
 

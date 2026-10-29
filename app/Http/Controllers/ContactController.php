@@ -32,7 +32,7 @@ class ContactController extends Controller
         }
 
         // 成功時のメッセージ、リダイレクト
-        return redirect()->route('products.index')
+        return redirect()->route('index')
                          ->with('success', 'お問い合わせが送信されました！');
     }
 }
