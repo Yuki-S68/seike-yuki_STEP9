@@ -17,27 +17,43 @@
             <label for="name" class="product-edit__label">商品名</label>
             <input type="text" name="name" id="name" class="product-edit__input" 
                    value="{{ old('name', $product->name) }}">
+
+            @error('name')
+            <p class="error-message">{{ $message }}</p>
+            @enderror
         </div>
 
         <div class="product-edit__group">
             <label for="price" class="product-edit__label">価格</label>
-            <input type="number" name="price" id="price" class="product-edit__input"
+            <input type="text" name="price" id="price" class="product-edit__input"
                    value="{{ old('price', $product->price) }}">
+
+            @error('price')
+            <p class="error-message">{{ $message }}</p>
+            @enderror
         </div>
 
         <div class="product-edit__group">
             <label for="description" class="product-edit__label">商品説明</label>
             <textarea name="description" id="description" class="product-edit__textarea">{{ old('description', $product->description) }}</textarea>
+
+            @error('description')
+                <p class="error-message">{{ $message }}</p>
+            @enderror
         </div>
 
         <div class="product-edit__group">
             <label for="stock" class="product-edit__label">在庫数</label>
-            <input type="number" name="stock" id="stock" class="product-edit__input"
+            <input type="text" name="stock" id="stock" class="product-edit__input"
                    value="{{ old('stock', $product->stock) }}">
+
+            @error('stock')
+                <p class="error-message">{{ $message }}</p>
+            @enderror
         </div>
 
         <div class="product-edit__group">
-            <label for="img_path" class="product-edit__label">商品画像</label>
+            <label for="image" class="product-edit__label">商品画像</label>
 
             @if ($product->img_path)
                 <img src="{{ asset('storage/' . $product->img_path) }}"
@@ -46,6 +62,9 @@
             @endif
 
             <input type="file" name="image" id="image" class="product-edit__file">
+            @error('image')
+                <p class="error-message">{{ $message }}</p>
+            @enderror
         </div>
 
         <div class="product-edit__actions">

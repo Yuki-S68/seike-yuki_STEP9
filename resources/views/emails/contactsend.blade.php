@@ -7,14 +7,6 @@
     <div class="contact__inner">
         <h1 class="contact__title">お問い合わせフォーム</h1>
 
-        @if ($errors->any())
-            <ul class="contact__errors">
-                @foreach ($errors->all() as $error)
-                    <li class="contact__error">{{ $error }}</li>
-                @endforeach
-            </ul>
-        @endif
-
         {{-- メール送信エラー --}}
         @if (session('error'))
             <div class="contact__error">
@@ -22,23 +14,34 @@
             </div>
         @endif
 
-
         <form action="{{ route('emails.submit') }}" method="POST" class="contact__form">
             @csrf
 
             <div class="contact__group">
                 <label for="name" class="contact__label">名前</label>
                 <input type="text" id="name" name="name" class="contact__input" value="{{ old('name') }}">
+
+                @error('name')
+                    <p class="error-message">{{ $message }}</p>
+                @enderror
             </div>
 
             <div class="contact__group">
                 <label for="email" class="contact__label">メールアドレス</label>
                 <input type="email" id="email" name="email" class="contact__input" value="{{ old('email') }}">
+
+                @error('email')
+                    <p class="error-message">{{ $message }}</p>
+                @enderror
             </div>
 
             <div class="contact__group">
                 <label for="message" class="contact__label">お問い合わせ内容</label>
                 <textarea id="message" name="message" class="contact__textarea">{{ old('message') }}</textarea>
+
+                @error('message')
+                    <p class="error-message">{{ $message }}</p>
+                @enderror
             </div>
 
             <div class="contact__buttons">

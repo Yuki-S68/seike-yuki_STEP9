@@ -7,6 +7,7 @@ use App\Models\Product;
 use App\Http\Requests\ProductRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\BuyRequest;
+use App\Http\Requests\PurchaseRequest;
 use App\Models\Sale;
 use Illuminate\Support\Facades\DB;
 
@@ -103,13 +104,6 @@ class ProductController extends Controller
     {
         $product = Product::findOrFail($id);
 
-        // 在庫チェック
-        if ($request->quantity > $product->stock) {
-            return back()->withErrors([
-                'quantity' => '在庫より多い数量は購入できません。',
-            ]);
-        }
-
         //在庫を減らす
         $product->stock -= $request->quantity;
         $product->save();
@@ -124,17 +118,10 @@ class ProductController extends Controller
         return redirect()->route('products.index')->with('success', '購入が完了しました！');
     }
 
-    public function purchase(BuyRequest $request)
+    public function purchase(PurchaseRequest $request)
     {
         //商品取得
         $product = Product::findOrFail($request->product_id);
-
-        //在庫チェック
-        if ($product->stock < $request->quantity) {
-            return response()->json([
-                'message' => '在庫が不足しています。',
-            ], 400);
-        }
 
         DB::beginTransaction();
         try {

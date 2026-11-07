@@ -27,11 +27,11 @@ class AccountUpdateRequest extends FormRequest
                 'required',
                 'string',
                 'max:255',
-                'regex:/\A[ぁ-んァ-ヶー一-龠々〆ヵヶ\s　]+\z/u',
+                'regex:/\A[ぁ-んァ-ヶー一-龠々〆ヵヶ　]+\z/u',
             ],
     
             'kana' => [
-                'nullable',
+                'required',
                 'string',
                 'max:255',
                 'regex:/\A[ァ-ヶー　]+\z/u',
@@ -56,6 +56,7 @@ class AccountUpdateRequest extends FormRequest
             'name.max'          => '名前は255文字以内で入力してください。',
             'name.regex'        => '名前（漢字）は日本語で入力してください。',
 
+            'kana.required'     => 'カナは必須です。',
             'kana.string'       => 'カナは文字列で入力してください。',
             'kana.max'          => 'カナは255文字以内で入力してください。',
             'kana.regex'        => '名前（カナ）は全角カタカナで入力してください。',
