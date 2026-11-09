@@ -44,4 +44,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Sale::class);
     }
+
+    // 所属会社とのリレーション
+    public function company()
+    {
+        return $this->belongsTo(Company::class);
+    }
 }

@@ -10,6 +10,7 @@ use App\Http\Requests\BuyRequest;
 use App\Http\Requests\PurchaseRequest;
 use App\Models\Sale;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Validation\ValidationException;
 
 
 
@@ -54,13 +55,16 @@ class ProductController extends Controller
 
     public function edit($id)
     {
-        $product = Product::findOrFail($id);
+        $product = Product::where('user_id', Auth::id())
+            ->findOrFail($id);
+
         return view('products.edit', compact('product'));
     }
 
     public function update(ProductRequest $request, $id)
     {
-        $product = Product::findOrFail($id);
+        $product = Product::where('user_id', Auth::id())
+            ->findOrFail($id);
 
         //既存画像を保持
         $imgPath =$product->img_path;
@@ -84,8 +88,9 @@ class ProductController extends Controller
 
     public function destroy($id)
     {
-        //商品情報を取得
-        $product = Product::findOrFail($id);
+        //商品情報を取得（自分が登録した商品だけ）
+        $product = Product::where('user_id', Auth::id())
+            ->findOrFail($id);
 
         //削除処理
         $product->delete();
@@ -100,51 +105,73 @@ class ProductController extends Controller
         return view('products.buy', compact('product'));
     }
 
-    public function buyComplete(\App\Http\Requests\BuyRequest $request, $id)
+    public function buyComplete(BuyRequest $request, $id)
     {
-        $product = Product::findOrFail($id);
+        DB::transaction(function () use ($request, $id) {
 
-        //在庫を減らす
-        $product->stock -= $request->quantity;
-        $product->save();
+            // 商品を取得してロック
+            $product = Product::where('id', $id)
+                ->lockForUpdate()
+                ->firstOrFail();
 
-        // 購入履歴を作成
-        Sale::create([
-            'user_id' => Auth::id(),
-            'product_id' => $product->id,
-            'quantity' => $request->quantity,
-        ]);
-
-        return redirect()->route('products.index')->with('success', '購入が完了しました！');
-    }
-
-    public function purchase(PurchaseRequest $request)
-    {
-        //商品取得
-        $product = Product::findOrFail($request->product_id);
-
-        DB::beginTransaction();
-        try {
-            // 購入履歴を作成
-            $sale = Sale::create([
-                'user_id' => Auth::id(),
-                'product_id' => $product->id,
-                'quantity' => $request->quantity,
-            ]);
+            // ロック取得後に在庫を再確認
+            if ($product->stock < $request->quantity) {
+                throw ValidationException::withMessages([
+                    'quantity' => '在庫が不足しています。',
+                ]);
+            }
 
             // 在庫を減らす
             $product->decrement('stock', $request->quantity);
 
-            DB::commit();
+            // 購入履歴を作成
+            Sale::create([
+                'user_id' => Auth::id(),
+                'product_id' => $product->id,
+                'quantity' => $request->quantity,
+            ]);
+        });
+
+        return redirect()->route('products.index')
+            ->with('success', '購入が完了しました！');
+    }
+
+    public function purchase(PurchaseRequest $request)
+    {
+        try {
+            $sale = DB::transaction(function () use ($request) {
+
+                // 商品を取得してロック
+                $product = Product::where('id', $request->product_id)
+                    ->lockForUpdate()
+                    ->firstOrFail();
+
+                // ロック取得後に在庫を再確認
+                if ($product->stock < $request->quantity) {
+                    throw ValidationException::withMessages([
+                        'quantity' => '在庫が不足しています。',
+                    ]);
+                }
+
+                // 在庫を減らす
+                $product->decrement('stock', $request->quantity);
+
+                // 購入履歴を作成
+                return Sale::create([
+                    'user_id' => Auth::id(),
+                    'product_id' => $product->id,
+                    'quantity' => $request->quantity,
+                ]);
+            });
 
             return response()->json([
                 'message' => '購入が完了しました。',
                 'order' => $sale,
             ], 201);
 
+        } catch (ValidationException $e) {
+            throw $e;
         } catch (\Exception $e) {
-            DB::rollBack();
-
             return response()->json([
                 'message' => '購入処理に失敗しました。',
             ], 500);

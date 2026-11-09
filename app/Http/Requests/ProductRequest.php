@@ -21,4 +21,22 @@ class ProductRequest extends FormRequest
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ];
     }
+
+    public function attributes()
+    {
+        return [
+            'name' => '商品名',
+            'price' => '価格',
+            'description' => '商品説明',
+            'stock' => '在庫数',
+            'image' => '商品画像',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'price.integer' => '価格は数値で入力してください。',
+        ];
+    }
 }

@@ -23,7 +23,7 @@ class MypageController extends Controller
         $sales = Sale::where('user_id', Auth::id())
                     ->orderBy('created_at', 'asc')
                     ->get();
-                    
+
         return view('mypage.index', compact('user', 'myProducts', 'sales'));
     }
 
@@ -39,7 +39,9 @@ class MypageController extends Controller
 
     public function editItem($id)
     {
-        $product = Product::findOrFail($id);
+        $product = Product::where('user_id', Auth::id())
+            ->findOrFail($id);
+
         return view('mypage.edit_item', compact('product'));
     }
 
@@ -63,7 +65,7 @@ class MypageController extends Controller
             'description' => $request->description,
             'stock' => $request->stock,
             'user_id' => Auth::id(),
-            'company_id' => 1,
+            'company_id' => Auth::user()->company_id,
             'img_path' => $imgPath,
         ]);
 
