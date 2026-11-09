@@ -32,6 +32,29 @@ class Product extends Model
         return $this->where('user_id', '!=', $user_id)->get();
     }
 
+    // 商品を検索する
+    public function searchProducts($user_id, $keyword, $min_price, $max_price)
+    {
+        $query = $this->where('user_id', '!=', $user_id);
+
+        // 商品名で検索
+        if (!empty($keyword)) {
+            $query->where('name', 'like', '%' . $keyword . '%');
+        }
+
+        // 最低価格で検索
+        if (!empty($min_price)) {
+            $query->where('price', '>=', $min_price);
+        }
+
+        // 最高価格で検索
+        if (!empty($max_price)) {
+            $query->where('price', '<=', $max_price);
+        }
+
+        return $query->orderBy('id', 'asc')->get();
+    }
+
     // 商品は1つの会社に属する
     public function company()
     {

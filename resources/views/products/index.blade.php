@@ -14,7 +14,10 @@
     @endif
 
 
-    <form  class="product-list__search-form" method="GET" action="{{ route('products.index') }}">
+    <form  class="product-list__search-form" 
+           method="GET"
+           action="{{ route('products.index') }}"
+           data-search-url="{{ route('products.search') }}">
         <input type="text" name="keyword" placeholder="商品名を入力" class="product-list__input">
         <input type="number" name="min_price" placeholder="最低価格" class="product-list__input">
         <span class="price-range">～</span>
@@ -33,17 +36,12 @@
                 <th></th>
             </tr>
         </thead>
-        <tbody class="product-list__table-body">
-            @foreach ($products as $product)
-            <tr>
-                <td>{{ $product->id }}</td>
-                <td>{{ $product->name }}</td>
-                <td>{{ $product->description }}</td>
-                <td><img src="{{ asset('storage/' . $product->img_path) }}" class="product-list__image"></td>
-                <td>{{ number_format($product->price) }}</td>
-                <td><a href="{{ route('products.show', $product->id) }}" class="product-list__button product-list__button--detail">詳細</a></td>
-            </tr>
-            @endforeach
-        </tbody>
+
+        @include('products.partials.list')
+
     </table>
+</div>
+
+<script src="{{ asset('js/product-search.js') }}"></script>
+
 @endsection

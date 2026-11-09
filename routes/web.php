@@ -21,6 +21,10 @@ Route::get('/index', [ProductController::class, 'index'])
     ->middleware('auth')
     ->name('index');
 
+Route::get('/products/search', [ProductController::class, 'search'])
+    ->middleware('auth')
+    ->name('products.search');
+
 Route::get('/products/{id}/buy', [ProductController::class, 'buy'])
      ->middleware('auth')
      ->name('products.buy');

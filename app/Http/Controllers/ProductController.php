@@ -18,30 +18,33 @@ class ProductController extends Controller
 {
     public function index(Request $request)
     {
-        $query = Product::query();
+        $product_model = new Product();
 
-        // 商品名検索
-        if ($request->filled('keyword')) {
-            $query->where('name', 'like', '%' . $request->keyword . '%');
-        }
-
-        // 最低価格
-        if ($request->filled('min_price')) {
-            $query->where('price', '>=', $request->min_price);
-        }
-
-        // 最高価格
-        if ($request->filled('max_price')) {
-            $query->where('price', '<=', $request->max_price);
-        }
-
-        // 自分以外の商品
-        $query->where('user_id', '!=', Auth::id());
-
-        $products = $query->orderBy('id', 'asc')->get();
+        // 商品一覧を取得
+        $products = $product_model->searchProducts(
+            Auth::id(),
+            $request->keyword,
+            $request->min_price,
+            $request->max_price
+        );
 
         return view('products.index', compact('products'));
+    }
 
+    public function search(Request $request)
+    {
+        $product_model = new Product();
+
+        // 商品を検索
+        $products = $product_model->searchProducts(
+            Auth::id(),
+            $request->keyword,
+            $request->min_price,
+            $request->max_price
+        );
+
+        // 検索結果を返す
+        return view('products.partials.list', compact('products'));
     }
 
     public function show($id)
